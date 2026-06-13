@@ -534,3 +534,96 @@ footer {
     .hero-text-block h1 { font-size: 2.4rem; }
     .contact-info-panel, .contact-form-panel { padding: 2rem; }
 }
+
+/* Nuevo Panel de Canales de Contacto Directo */
+.contact-channels-panel {
+    padding: 4rem;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.badge-channels {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 0.3rem 0.8rem;
+    background-color: rgba(10, 37, 64, 0.05);
+    color: var(--primary-deep);
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.contact-channels-panel h3 {
+    font-size: 1.8rem;
+    color: var(--primary-deep);
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+}
+
+.channels-intro {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+}
+
+/* Cajas de cada Canal */
+.channel-box {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.2rem;
+    background-color: #f8fafc;
+    border-left: 4px solid var(--secondary-gold);
+    border-radius: 0 var(--radius-medium) var(--radius-medium) 0;
+    margin-bottom: 1.2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.channel-box:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow-soft);
+}
+
+.channel-icon {
+    font-size: 1.8rem;
+}
+
+.channel-data {
+    display: flex;
+    flex-direction: column;
+}
+
+.channel-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-light);
+    letter-spacing: 0.5px;
+    margin-bottom: 0.2rem;
+}
+
+.channel-link {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-deep);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.channel-link:hover {
+    color: var(--secondary-gold);
+}
+
+/* Ajuste responsivo del panel de canales */
+@media (max-width: 768px) {
+    .contact-channels-panel {
+        padding: 2rem;
+    }
+    .channel-link {
+        font-size: 1rem;
+    }
+}
