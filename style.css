@@ -473,6 +473,22 @@ html {
     border-top-color: var(--secondary-gold);
 }
 
+.client-card-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+.client-card-link:focus-visible {
+    outline: 3px solid var(--secondary-gold);
+    outline-offset: 4px;
+}
+
 /* MODIFICACIÓN: Contenedor adaptado para ocupar el área total */
 .client-logo-container {
     width: 100%;

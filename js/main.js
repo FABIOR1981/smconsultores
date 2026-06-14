@@ -24,14 +24,26 @@ function cargarLogosClientes() {
     });
 
     // Inyectar la estructura HTML correspondiente a cada logo en la subruta indicada
-    grid.innerHTML = clientesOrdenados.map(cliente => `
-        <div class="client-card">
+    grid.innerHTML = clientesOrdenados.map(cliente => {
+        const logoHtml = `
             <div class="client-logo-container">
                 <img src="img/logos_clientes/${cliente.logo}" alt="Logo ${cliente.nombre}" class="client-logo">
-            </div>
-           
-        </div>
-    `).join('');
+            </div>`;
+
+        if (cliente.url) {
+            return `
+                <div class="client-card">
+                    <a class="client-card-link" href="${cliente.url}" target="_blank" rel="noopener noreferrer" title="${cliente.nombre}">
+                        ${logoHtml}
+                    </a>
+                </div>`;
+        }
+
+        return `
+            <div class="client-card">
+                ${logoHtml}
+            </div>`;
+    }).join('');
 }
 
 // Ejecutar la carga cuando el documento esté completamente listo
