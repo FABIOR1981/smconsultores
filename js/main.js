@@ -28,18 +28,17 @@ function cargarLogosClientes() {
         <div class="client-card">
             <div class="client-logo-container">
                 <img src="img/logos_clientes/${cliente.logo}" alt="Logo ${cliente.nombre}" class="client-logo">
-            </div>   
+            </div>
+            <h4>${cliente.nombre}</h4>
         </div>
     `).join('');
 }
 
 // Ejecutar la carga cuando el documento esté completamente listo
 document.addEventListener('DOMContentLoaded', () => {
-    const intentarCargar = setInterval(() => {
-        if (typeof clientesComex !== 'undefined') {
-            clearInterval(intentarCargar);
-            cargarLogosClientes();
-        }
-    }, 50); // Revisa cada 50ms si la variable ya existe
-
+    if (typeof clientesComex !== 'undefined') {
+        cargarLogosClientes();
+    } else {
+        console.warn('clientesComex no está definido. Verifica que js/logos.js se cargue antes de js/main.js.');
+    }
 });
