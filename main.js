@@ -5,8 +5,8 @@
 // Array de datos de tus clientes vinculados a la carpeta img/logos_clientes/
 const clientesComex = [
     { nombre: "Aramaycia", logo: "1_logo-aramaycia.png" },
-    { nombre: "Santa Rosa", logo: "2_logo-santarosa.png" },
-    { nombre: "Ibarra Comex", logo: "3_logo-ibarra.png" },
+    { nombre: "Santa Rosa", logo: "2_logo-ibarra.png" },
+    { nombre: "Ibarra Comex", logo: "3_logo-santarosa.png" },
     { nombre: "Liguori Dendi", logo: "4_logo-liguori.png" }
 ];
 
