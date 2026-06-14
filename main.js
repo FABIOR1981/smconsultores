@@ -1,14 +1,9 @@
 // ==========================================================================
 // LÓGICA DE CARGA Y ORDENACIÓN DINÁMICA DE LOGOS DE CLIENTES
+// Ahora toma la variable 'clientesComex' directamente de logos.js
 // ==========================================================================
 
-// Array de datos de tus clientes vinculados a la carpeta img/logos_clientes/
-const clientesComex = [
-    { nombre: "Aramaycia", logo: "1_logo-aramaycia.png" },
-    { nombre: "Santa Rosa", logo: "2_logo-ibarra.png" },
-    { nombre: "Ibarra Comex", logo: "3_logo-santarosa.png" },
-    { nombre: "Liguori Dendi", logo: "4_logo-liguori.png" }
-];
+// Ya no declaramos 'clientesComex' aquí, la toma del archivo logos.js
 
 // Función para leer el prefijo numérico del archivo (ej: "1_logo-aramaycia.png" -> 1)
 function obtenerOrden(nombreArchivo) {
@@ -23,6 +18,7 @@ function cargarLogosClientes() {
     if (!grid) return; // Seguridad en caso de que no encuentre el contenedor
 
     // Ordenar los clientes por el número del prefijo del archivo
+    // Usamos la variable 'clientesComex' que viene desde logos.js
     const clientesOrdenados = [...clientesComex].sort((a, b) => {
         return obtenerOrden(a.logo) - obtenerOrden(b.logo);
     });
