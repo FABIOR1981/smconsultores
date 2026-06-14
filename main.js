@@ -34,4 +34,12 @@ function cargarLogosClientes() {
 }
 
 // Ejecutar la carga cuando el documento esté completamente listo
-document.addEventListener('DOMContentLoaded', cargarLogosClientes);
+document.addEventListener('DOMContentLoaded', () => {
+    const intentarCargar = setInterval(() => {
+        if (typeof clientesComex !== 'undefined') {
+            clearInterval(intentarCargar);
+            cargarLogosClientes();
+        }
+    }, 50); // Revisa cada 50ms si la variable ya existe
+
+});
