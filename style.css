@@ -730,3 +730,31 @@ footer {
         font-size: 1rem;
     }
 }
+
+/* Lista de detalles técnicos de clientes */
+.client-details-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 1.5rem 0;
+    text-align: left; /* Hace que las viñetas se lean de forma cómoda */
+}
+
+.client-details-list li {
+    position: relative;
+    padding-left: 1.2rem;
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.4;
+    margin-bottom: 0.6rem;
+}
+
+/* El clásico check o viñeta dorada sutil */
+.client-details-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--secondary-gold);
+    font-weight: bold;
+    font-size: 1.1rem;
+    top: -2px;
+}
