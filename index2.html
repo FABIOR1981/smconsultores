@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SM Consultores - Comercio Exterior</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="blob-decorator blob-1"></div>
+    <div class="blob-decorator blob-2"></div>
+
+    <nav class="navbar">
+        <div class="logo">SM <span>Consultores</span></div>
+        <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+        <div class="nav-links">
+            <a href="#inicio" class="nav-item active">Inicio</a>
+            <a href="#perfil" class="nav-item">Sobre Mí</a>
+            <a href="#servicios" class="nav-item">Servicios</a>
+            <a href="#clientes" class="nav-item">Clientes</a>
+            <a href="#contacto" class="nav-item">Contacto</a>
+        </div>
+    </nav>
+
+    <section id="inicio" class="hero-section">
+        <div class="hero-container">
+            <div class="hero-text-block">
+                <span class="badge">Auditoría & Consultoría</span>
+                <h1>Soluciones Estratégicas en Comercio Exterior</h1>
+                <p>Optimizamos sus operaciones globales, garantizando el cumplimiento normativo, reduciendo riesgos en la cadena de suministro y maximizando la eficiencia operativa de su empresa.</p>
+                <div class="hero-actions">
+                    <a href="#contacto" class="btn-primary">Iniciar Consulta</a>
+                    <a href="#servicios" class="btn-secondary">Ver Servicios</a>
+                </div>
+            </div>
+            <div class="hero-image-block">
+                <div class="image-wrapper main-img">
+                    <img src="img/hero-main.jpg" alt="Operaciones logísticas globales">
+                </div>
+                <div class="image-wrapper sub-img">
+                    <img src="img/hero-sub.jpg" alt="Reunión corporativa de negocios">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="perfil" class="about-section">
+        <div class="about-grid">
+            <div class="about-images">
+                <div class="accent-box"></div>
+                <div class="image-wrapper-about">
+                    <img src="img/perfil-profesional.jpg" alt="Lic. Federica Ibarra">
+                </div>
+            </div>
+            <div class="about-text">
+                <span class="section-title-badge">LIDERAZGO Y EXPERIENCIA</span>
+                <h2>Asesoría Exclusiva de Alta Gama</h2>
+                <p class="highlight-text">"Acompañamos el crecimiento de su organización con un enfoque analítico, riguroso y adaptado a las exigencias internacionales."</p>
+                <p>Con una sólida trayectoria en el ecosistema del comercio exterior, nos especializamos en desglosar procesos complejos y transformarlos en ventajas competitivas. Nuestra metodología mitiga fricciones operativas y asegura auditorías exitosas.</p>
+                <p>Trabajamos bajo estándares internacionales de gestión de calidad, brindando la confianza que su empresa necesita para operar con total tranquilidad en mercados globales altamente regulados.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="services-section">
+        <span class="section-title-badge">NUESTROS PILARES</span>
+        <h2 class="section-main-title">Servicios de Consultoría Especializada</h2>
+        
+        <div class="services-grid">
+            <div class="card-canvas">
+                <div class="card-image">
+                    <img src="img/servicio-auditoria.jpg" alt="Auditoría de comercio exterior">
+                </div>
+                <div class="card-body">
+                    <h3>Auditoría Integral Comex</h3>
+                    <ul>
+                        <li>Revisión exhaustiva de documentación aduanera y legal.</li>
+                        <li>Detección preventiva de contingencias fiscales y operativas.</li>
+                        <li>Análisis de cumplimiento y control normativo riguroso.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card-canvas highlight-card">
+                <div class="card-image">
+                    <img src="img/servicio-oea.jpg" alt="Certificación OEA">
+                </div>
+                <div class="card-body">
+                    <h3>Certificación & Soporte OEA</h3>
+                    <ul>
+                        <li>Diagnóstico y diseño e implementación del sistema OEA.</li>
+                        <li>Capacitaciones in-company con diseño a medida del cliente.</li>
+                        <li>Auditorías periódicas de mantenimiento del estándar aduanero.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card-canvas">
+                <div class="card-image">
+                    <img src="img/servicio-procesos.jpg" alt="Reingeniería de procesos">
+                </div>
+                <div class="card-body">
+                    <h3>Reingeniería de Procesos</h3>
+                    <ul>
+                        <li>Optimización del flujo logístico y cadena de suministro.</li>
+                        <li>Manuales de procedimiento orientados a la mejora continua.</li>
+                        <li>Evaluación de indicadores de eficiencia operativa global.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <p class="services-footer-quote">
+            “No solo analizamos los problemas existentes, diseñamos las estructuras del mañana para asegurar un tránsito seguro, ágil y rentable de sus mercancías.”
+        </p>
+    </section>
+
+    <section id="clientes" class="clients-section">
+        <span class="section-title-badge center">RESPALDO Y CONFIANZA</span>
+        <h2 class="section-main-title">Principales Clientes de Comercio Exterior</h2>
+        <p class="clients-subtitle">“La confianza de nuestros clientes respalda nuestros resultados”</p>
+        
+        <div id="clients-grid" class="clients-grid"></div>
+    </section>
+
+    <section id="contacto" class="contact-section">
+        <div class="contact-wrapper">
+            <div class="contact-info-panel">
+                <h2>¿Listo para optimizar sus operaciones?</h2>
+                <p>Agende una sesión de diagnóstico inicial con nuestro equipo técnico para evaluar el estado de sus procesos de comercio exterior.</p>
+                <div class="contact-details">
+                    <p><strong>Ubicación:</strong> Montevideo, Uruguay</p>
+                    <p><strong>Horario:</strong> Lunes a Viernes de 09:00 a 18:00 hs</p>
+                </div>
+            </div>
+            
+            <div class="contact-channels-panel">
+                <span class="badge-channels">CANALES DIRECTOS</span>
+                <h3>Vías de Comunicación</h3>
+                <p class="channels-intro">Seleccione el medio de su preferencia para comunicarse con nosotros de manera inmediata:</p>
+                
+                <div class="channel-box">
+                    <span class="channel-icon">✉️</span>
+                    <div class="channel-data">
+                        <span class="channel-label">Correo Electrónico</span>
+                        <a href="mailto:info@smconsultores.com.uy" class="channel-link">info@smconsultores.com.uy</a>
+                    </div>
+                </div>
+
+                <div class="channel-box">
+                    <span class="channel-icon">💬</span>
+                    <div class="channel-data">
+                        <span class="channel-label">Atención WhatsApp</span>
+                        <a href="https://wa.me/59899000000" target="_blank" class="channel-link">+598 99 000 000</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">SM Consultores</div>
+        <p>&copy; 2026 SM Consultores. Todos los derechos reservados. Asesoría corporativa en Comercio Exterior.</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
