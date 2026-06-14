@@ -473,29 +473,31 @@ html {
     border-top-color: var(--secondary-gold);
 }
 
-/* Contenedor unificado para alojar logos sin fondo de cualquier proporción */
+/* MODIFICACIÓN: Contenedor adaptado para ocupar el área total */
 .client-logo-container {
     width: 100%;
-    height: 80px;               /* Bloque rígido simétrico */
+    height: 120px;              /* Bloque simétrico con más altura de visualización */
     display: flex;
     align-items: center;        /* Centrado vertical completo del logo */
     justify-content: center;    /* Centrado horizontal completo del logo */
     margin-bottom: 1.5rem;
-    padding: 0.5rem;
+    padding: 0;                 /* Eliminado el padding para expandirse al área total */
     background-color: transparent;
+    overflow: hidden;
 }
 
+/* MODIFICACIÓN: Imagen estirada al 100% respetando sus proporciones */
 .client-logo {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;        /* Escala proporcionalmente el logo sin distorsión */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;        /* Escala al área total disponible sin deformar */
     filter: grayscale(15%);     /* Estética pulida integrada */
     transition: all 0.3s ease;
 }
 
 .client-card:hover .client-logo {
     filter: grayscale(0%);
-    transform: scale(1.04);
+    transform: scale(1.05);
 }
 
 .client-card h4 {
