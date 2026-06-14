@@ -27,9 +27,9 @@ function cargarLogosClientes() {
     grid.innerHTML = clientesOrdenados.map(cliente => `
         <div class="client-card">
             <div class="client-logo-container">
-                <img src="img/logos_clientes/${cliente.logo}"  class="client-logo">
+                <img src="img/logos_clientes/${cliente.logo}" alt="Logo ${cliente.nombre}" class="client-logo">
             </div>
-            <h4>${cliente.nombre}</h4>
+           
         </div>
     `).join('');
 }
