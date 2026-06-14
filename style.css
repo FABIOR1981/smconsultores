@@ -246,8 +246,9 @@ html {
 
 .accent-box {
     position: absolute;
-    width: 70%;
-    height: 100%;
+    width: 100%;
+    max-width: 420px;       /* Mismo ancho máximo que la imagen */
+    height: 100%;           /* Copia la altura exacta del contenedor */
     background-color: var(--secondary-gold);
     top: -20px;
     left: -20px;
@@ -262,13 +263,19 @@ html {
     overflow: hidden;
     box-shadow: var(--shadow-heavy);
     z-index: 2;
-    height: 450px;
+    
+    /* CAMBIOS AQUÍ: Hacemos el contenedor rectangular y más alto */
+    width: 100%;
+    max-width: 420px;       /* Controla el ancho máximo del rectángulo */
+    height: 580px;          /* Aumentamos la altura para que no corte a la persona */
+    margin: 0 auto;         /* Centra el bloque en resoluciones intermedias */
 }
 
 .image-wrapper-about img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover;      /* Mantiene la proporción de la foto sin deformarla */
+    object-position: top;   /* PRIORIDAD: Asegura que encuadre desde la cabeza hacia abajo */
 }
 
 .about-text h2 {
