@@ -440,7 +440,7 @@ html {
     font-size: 1.2rem;
     color: var(--text-light);
     font-style: italic;
-    margin-top: -3rem;
+    margin-top: 0rem;
     margin-bottom: 4rem;
 }
 
