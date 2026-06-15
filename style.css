@@ -780,10 +780,3 @@ footer {
 }
 
 
-#inicio .hero-text-block p, 
-#experta .about-text p {
-    text-align: justify;
-    line-height: 1.6;
-    margin-bottom: 1.2rem;
-    hyphens: auto; /* Opcional: mejora el corte de palabras al justificar */
-}
