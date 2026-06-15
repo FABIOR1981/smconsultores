@@ -779,3 +779,9 @@ footer {
     top: -2px;
 }
 
+
+#experta .about-text p {
+    text-align: justify;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+}
