@@ -13,7 +13,7 @@ const clientesComex = [
     {
         nombre: "Santa Rosa",
         logo: "3_logo-santarosa.png",
-        url: "https://www.nissan.com.uy/"
+        //url: "https://www.nissan.com.uy/"
     },
     {
         nombre: "Liguori Dendi",
