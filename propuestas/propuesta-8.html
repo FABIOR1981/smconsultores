@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SM Consultores · Propuesta 8 · Ordenar la cadena</title>
+<meta name="description" content="Sistemas de gestión, OEC, comercio exterior y gestión de personas. SM Consultores, Montevideo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Idea: la cadena de suministro como estructura. Cada servicio es una etapa,
+     no una tarjeta. Papel de aduana, tinta casi negra, bordó y dorado como sellos. */
+  :root {
+    --paper: #E9ECE6;
+    --ink: #1C1A18;
+    --ink-soft: #4E5550;
+    --bordo: #5C1F2E;
+    --gold: #B8862B;
+    --rule: #C4C9BF;
+    --serif: "Bodoni Moda", Georgia, serif;
+    --sans: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  ::selection { background: var(--gold); color: var(--ink); }
+  :focus-visible { outline: 2px solid var(--bordo); outline-offset: 4px; }
+  html { scrollbar-color: var(--bordo) var(--paper); }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.65; }
+  a { color: inherit; text-underline-offset: 4px; }
+  img { display: block; max-width: 100%; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+  /* Navegación: sólo texto y una regla */
+  header { position: absolute; inset: 0 0 auto 0; z-index: 10; color: #fff; }
+  header .wrap { display: flex; justify-content: space-between; align-items: center; height: 96px; }
+  header .brand { font-family: var(--serif); font-size: 22px; letter-spacing: .01em; text-decoration: none; }
+  header nav { display: flex; gap: 32px; font-size: 15px; }
+  header nav a { text-decoration: none; opacity: .9; }
+  header nav a:hover { opacity: 1; text-decoration: underline; }
+
+  /* Hero: foto a sangre con el titular sobre ella */
+  .hero { position: relative; min-height: 88vh; display: flex; align-items: flex-end; color: #fff; background: var(--ink); }
+  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(28,26,24,.7) 0%, rgba(28,26,24,0) 22%), linear-gradient(to top, rgba(28,26,24,.88) 10%, rgba(28,26,24,.15) 70%); }
+  .hero .wrap { position: relative; z-index: 1; padding-bottom: 96px; }
+  .hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(44px, 6.4vw, 86px); line-height: 1.12; letter-spacing: -.02em; max-width: 14ch; margin: 0 0 32px; }
+  .hero p { max-width: 52ch; font-size: 19px; margin: 0 0 40px; opacity: .92; }
+  .hero-link { display: inline-block; padding: 16px 0; border-bottom: 2px solid var(--gold); text-decoration: none; font-weight: 600; font-size: 16px; }
+  .hero-link:hover { color: var(--gold); }
+
+  /* Entrada única y orquestada */
+  @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  .hero h1, .hero p, .hero-link { animation: rise .9s cubic-bezier(.16,1,.3,1) both; }
+  .hero p { animation-delay: .12s; }
+  .hero-link { animation-delay: .24s; }
+
+  /* Etapas: la cadena de servicios */
+  .stages { padding: 136px 0 120px; }
+  .stages h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(34px, 4vw, 52px); line-height: 1.2; max-width: 22ch; margin: 0 0 80px; letter-spacing: -.01em; }
+  .stage { display: grid; grid-template-columns: 220px 1fr; gap: 56px; padding: 44px 0; border-top: 1px solid var(--rule); }
+  .stage:last-child { border-bottom: 1px solid var(--rule); }
+  .stage .etapa { font-family: var(--serif); font-size: 28px; color: var(--bordo); line-height: 1.3; }
+  .stage h3 { font-family: var(--serif); font-weight: 400; font-size: 30px; line-height: 1.3; margin: 0 0 18px; }
+  .stage ul { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 40px; }
+  .stage li { break-inside: avoid; padding: 6px 0 6px 18px; position: relative; color: var(--ink-soft); font-size: 16px; }
+  .stage li::before { content: ""; position: absolute; left: 0; top: 16px; width: 8px; height: 8px; background: var(--gold); }
+  .stage-photo { grid-column: 2; margin-top: 28px; }
+  .stage-photo img { width: 100%; height: 300px; object-fit: cover; }
+
+  /* Franja de cita: bordó, sin decoración */
+  .pull { background: var(--bordo); color: #fff; padding: 112px 0; }
+  .pull blockquote { margin: 0; font-family: var(--serif); font-size: clamp(28px, 3.4vw, 42px); line-height: 1.35; max-width: 30ch; }
+  .pull cite { display: block; margin-top: 32px; font-family: var(--sans); font-style: normal; font-size: 16px; }
+
+  /* Perfil */
+  .profile { padding: 136px 0; }
+  .profile-grid { display: grid; grid-template-columns: 5fr 6fr; gap: 80px; align-items: start; }
+  .profile img { width: 100%; height: 620px; object-fit: cover; object-position: top; }
+  .profile h2 { font-family: var(--serif); font-weight: 400; font-size: 40px; line-height: 1.25; margin: 0 0 32px; }
+  .profile p { color: var(--ink-soft); max-width: 60ch; margin: 0 0 18px; }
+  .profile dl { margin: 40px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--rule); }
+  .profile dt, .profile dd { margin: 0; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+  .profile dt { font-weight: 600; font-size: 15px; }
+  .profile dd { color: var(--ink-soft); font-size: 15px; }
+
+  /* Clientes: hilera horizontal, sin tarjetas */
+  .clients { padding: 120px 0; border-top: 1px solid var(--rule); }
+  .clients h2 { font-family: var(--serif); font-weight: 400; font-size: 40px; margin: 0 0 56px; }
+  .logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px 56px; }
+  .logos a, .logos span { display: flex; align-items: center; justify-content: center; height: 64px; }
+  .logos img { max-height: 56px; width: auto; max-width: 180px; object-fit: contain; opacity: 1; transition: opacity .3s, filter .3s; }
+  
+
+  /* Contacto */
+  .contact { background: var(--ink); color: var(--paper); padding: 136px 0; }
+  .contact-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px; align-items: end; }
+  .contact h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 5vw, 64px); line-height: 1.15; margin: 0 0 28px; letter-spacing: -.01em; }
+  .contact p { max-width: 50ch; opacity: 1; margin: 0 0 40px; font-size: 18px; }
+  .btn { display: inline-block; background: var(--gold); color: var(--ink); text-decoration: none; padding: 18px 30px; font-weight: 600; font-size: 16px; }
+  .btn:hover { background: #C99535; }
+  .contact dl { margin: 0; }
+  .contact dt { font-size: 13px; opacity: .85; margin-top: 22px; }
+  .contact dt:first-child { margin-top: 0; }
+  .contact dd { margin: 4px 0 0; font-size: 17px; }
+  .contact dd a { text-decoration: none; }
+  .contact dd a:hover { text-decoration: underline; }
+
+  footer { padding: 36px 0; font-size: 14px; color: var(--ink-soft); }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+  @media (max-width: 900px) {
+    .wrap { padding: 0 24px; }
+    header nav { display: none; }
+    .stage, .profile-grid, .contact-grid { grid-template-columns: 1fr; gap: 28px; }
+    .stage-photo { grid-column: 1; }
+    .stage ul { columns: 1; }
+    .profile img { height: 420px; }
+    .profile dl { grid-template-columns: 1fr; }
+    .logos span, .logos a { height: 48px; }
+  }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#inicio">SM Consultores</a>
+    <nav>
+      <a href="#etapas">Servicios</a>
+      <a href="#perfil">Perfil</a>
+      <a href="#clientes">Clientes</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="inicio" class="hero">
+    <img src="../img/logistica-comex.jpg" alt="Logística y comercio exterior">
+    <div class="wrap">
+      <h1>Ordenamos su gestión y su cadena de suministro.</h1>
+      <p>Sistemas de gestión, auditorías OEC y acompañamiento para agentes de carga, importadores, despachantes de aduana y operadores logísticos.</p>
+      <a class="hero-link" href="https://wa.me/59899987300">Pedir reunión de diagnóstico</a>
+    </div>
+  </section>
+
+  <section id="etapas" class="stages">
+    <div class="wrap">
+      <h2>Tres áreas, un mismo objetivo: que su operación funcione con control.</h2>
+
+      <div class="stage">
+        <div class="etapa">Personas</div>
+        <div>
+          <h3>Gestión del talento y cultura</h3>
+          <ul>
+            <li>Selección de personal y evaluación por competencias.</li>
+            <li>Diagnóstico de clima laboral y desempeño.</li>
+            <li>Desarrollo de líderes y equipos.</li>
+            <li>Gestión del cambio y transformación.</li>
+            <li>Mediación y resolución de conflictos.</li>
+            <li>Talleres de bienestar, liderazgo y cultura.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="etapa">Sistemas</div>
+        <div>
+          <h3>Sistemas de gestión, seguridad y certificaciones</h3>
+          <ul>
+            <li>Análisis de brechas frente a ISO y OEC.</li>
+            <li>Implementación y fortalecimiento de sistemas.</li>
+            <li>Gestión de riesgos en la cadena de suministro.</li>
+            <li>Procedimientos y controles a medida.</li>
+            <li>Auditorías internas, externas y de segunda parte.</li>
+            <li>Acompañamiento hasta la certificación.</li>
+          </ul>
+          <div class="stage-photo"><img src="../img/servicio-sistemas.jpg" alt="Implementación de sistemas de gestión"></div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="etapa">Comunicación</div>
+        <div>
+          <h3>Desarrollo organizacional y comunicación</h3>
+          <ul>
+            <li>Capacitación y formación a medida.</li>
+            <li>Desarrollo de competencias y cultura preventiva.</li>
+            <li>Comunicación organizacional y cultura corporativa.</li>
+            <li>Diseño de estrategias de comunicación interna.</li>
+            <li>Alineación de equipos con los objetivos.</li>
+          </ul>
+          <div class="stage-photo"><img src="../img/servicio-talento.jpg" alt="Gestión de personas"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pull">
+    <div class="wrap">
+      <blockquote>Experiencia real en comercio exterior, aplicada a seguridad y gestión.</blockquote>
+    </div>
+  </section>
+
+  <section id="perfil" class="profile">
+    <div class="wrap profile-grid">
+      <img src="../img/perfil-shalon.jpg" alt="Shalon Morales, consultora">
+      <div>
+        <h2>Consultora experta en OEC, comercio exterior y cadena de suministro.</h2>
+        <p>Licenciada en Ciencias de la Comunicación, con posgrado en Comunicación Organizacional. Auditora de sistemas certificada por AENOR y especialista en sistemas de gestión integrados, normas ISO y el Programa Operador Económico Calificado.</p>
+        <p>Acompaña a agentes de carga, importadores, despachantes de aduana y operadores logísticos en la gestión de riesgos, el cumplimiento normativo y la mejora continua.</p>
+        <dl>
+          <dt>Auditoría de sistemas</dt><dd>AENOR</dd>
+          <dt>Normas</dt><dd>ISO e integración</dd>
+          <dt>Programa</dt><dd>OEC</dd>
+          <dt>Especialidad</dt><dd>Comunicación organizacional</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="clientes" class="clients">
+    <div class="wrap">
+      <h2>Clientes de comercio exterior</h2>
+      <div class="logos">
+        <a href="https://www.aramaycia.com/" target="_blank" rel="noopener noreferrer"><img src="../img/logos_clientes/1_logo-aramaycia.png" alt="Aramaycia"></a>
+        <a href="https://www.ibarra.com.uy/" target="_blank" rel="noopener noreferrer"><img src="../img/logos_clientes/2_logo-ibarra.png" alt="Ibarra Comex"></a>
+        <span><img src="../img/logos_clientes/3_logo-santarosa.png" alt="Santa Rosa"></span>
+        <a href="https://ld.com.uy/" target="_blank" rel="noopener noreferrer"><img src="../img/logos_clientes/4_logo-liguori.png" alt="Liguori Dendi"></a>
+        <a href="https://coopelectoral.com.uy/" target="_blank" rel="noopener noreferrer"><img src="../img/logos_clientes/5_logo-ace.png" alt="ACE"></a>
+        <a href="https://marleycoffee.com.uy/" target="_blank" rel="noopener noreferrer"><img src="../img/logos_clientes/6_logo-marley-coffee.png" alt="Marley Coffee"></a>
+        <a href="https://www.nyc.com.uy/" target="_blank" rel="noopener noreferrer"><img src="../img/logos_clientes/7_logo-nautilus-yacht-club.png" alt="Nautilus Yachting Club"></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <h2>Transformemos desafíos en oportunidades de mejora.</h2>
+        <p>Cuéntenos su situación y coordinamos una reunión de diagnóstico, presencial o remota.</p>
+        <a class="btn" href="https://wa.me/59899987300">Escribir por WhatsApp</a>
+      </div>
+      <dl>
+        <dt>Teléfono / WhatsApp</dt>
+        <dd>(+598) 99 987 300</dd>
+        <dt>LinkedIn</dt>
+        <dd><a href="https://www.linkedin.com/in/shalonmorales/" target="_blank" rel="noopener noreferrer">Shalon Morales</a></dd>
+        <dt>Correo</dt>
+        <dd><a href="mailto:shalonmorales@gmail.com">shalonmorales@gmail.com</a></dd>
+        <dt>Modalidad</dt>
+        <dd>Presencial y remota. Montevideo, Uruguay.</dd>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 SM Consultores. Todos los derechos reservados.</span>
+  </div>
+</footer>
+
+</body>
+</html>
