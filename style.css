@@ -8,6 +8,8 @@
     --gold:          #c08c29;   /* dorado del logo */
     --gold-deep:     #9c6f1c;   /* dorado para texto sobre claro (contraste AA) */
     --gold-soft:     #f3e7cf;
+    --green:         #1f3d33;   /* verde profundo de marca */
+    --green-hover:   #2a5244;
     --ink:           #1d1a15;   /* grafito cálido */
     --ink-soft:      #4a443b;
     --muted:         #7a7266;
@@ -180,11 +182,11 @@ ul {
 }
 
 .btn-primary {
-    background: var(--ink);
+    background: var(--green);
     color: var(--white);
 }
 .btn-primary:hover {
-    background: #342f25;
+    background: var(--green-hover);
 }
 
 .btn-ghost {
@@ -258,7 +260,7 @@ ul {
 }
 
 .nav-cta {
-    background: var(--ink);
+    background: var(--green);
     color: var(--white) !important;
     padding: 0.6rem 1.2rem;
     border-radius: 999px;
@@ -268,7 +270,7 @@ ul {
 }
 .nav-cta:hover,
 .nav-cta.active {
-    background: #342f25;
+    background: var(--green-hover);
 }
 
 .menu-toggle {
@@ -483,7 +485,7 @@ ul {
 /* ---------- Clientes ---------- */
 .clients {
     padding: clamp(4rem, 8vw, 6.5rem) 0;
-    background: var(--ink);
+    background: var(--green);
 }
 .clients .section-head h2 {
     color: var(--white);
@@ -556,7 +558,7 @@ ul {
 }
 
 .contact-info {
-    background: var(--ink);
+    background: var(--green);
     color: #d9d2c4;
     border-radius: var(--radius-lg);
     padding: clamp(2rem, 4vw, 3.2rem);
@@ -700,7 +702,7 @@ ul {
     align-items: center;
     padding: 0.85rem 1.3rem;
     border-radius: 999px;
-    background: var(--ink);
+    background: var(--green);
     color: var(--white);
     font-weight: 700;
     font-size: 0.92rem;
@@ -711,7 +713,7 @@ ul {
 }
 .whatsapp-float:hover {
     transform: translateY(-2px);
-    background: #342f25;
+    background: var(--green-hover);
 }
 
 /* ---------- Responsive ---------- */
