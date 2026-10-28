@@ -24,5 +24,10 @@ const clientesComex = [
         nombre: "ACE",
         logo: "5_logo-ace.png",
         url: "https://coopelectoral.com.uy/"
+    },
+    {
+        nombre: "Marley Coffee",
+        logo: "6_logo-marley-coffee.png",
+        url: "https://marleycoffee.com.uy/"
     }
 ];
