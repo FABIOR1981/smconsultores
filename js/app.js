@@ -1,40 +1,53 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    const navItems = document.querySelectorAll('.nav-item');
-    const sections = document.querySelectorAll('section[id]');
+/* ==========================================================================
+   SM Consultores · Interacción de la página
+   - Menú hamburguesa en celular
+   - Resaltado de la sección visible en el menú (scroll spy)
+   ========================================================================== */
+(() => {
+    const toggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('navLinks');
+    const links = Array.from(document.querySelectorAll('.nav-item'));
 
-    // Menú móvil: muestra u oculta la navegación y actualiza aria-expanded
-    menuToggle.addEventListener('click', () => {
-        const cerrado = navLinks.classList.toggle('hidden');
-        menuToggle.setAttribute('aria-expanded', String(!cerrado));
-    });
+    if (!toggle || !nav) return;
 
-    // Cierra el menú móvil al elegir una sección
-    navItems.forEach(item => {
-        item.addEventListener('click', () => {
-            navLinks.classList.add('hidden');
-            menuToggle.setAttribute('aria-expanded', 'false');
-        });
-    });
-
-    // Resalta en el menú la sección que está en el centro de la pantalla
-    const marcarActivo = (id) => {
-        navItems.forEach(item => {
-            const activo = item.getAttribute('href') === `#${id}`;
-            item.classList.toggle('text-gold-text', activo);
-            item.classList.toggle('font-semibold', activo);
-            item.classList.toggle('text-ink/70', !activo);
-        });
+    const setMenu = (open) => {
+        nav.classList.toggle('is-open', open);
+        toggle.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
     };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                marcarActivo(entry.target.getAttribute('id'));
-            }
-        });
-    }, { root: null, rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+    toggle.addEventListener('click', () => {
+        setMenu(!nav.classList.contains('is-open'));
+    });
 
-    sections.forEach(section => observer.observe(section));
-});
+    links.forEach((link) => {
+        link.addEventListener('click', () => setMenu(false));
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') setMenu(false);
+    });
+
+    // Resaltado de la sección activa (solo secciones que tienen enlace en el menú)
+    const sectionIds = links
+        .map((link) => link.getAttribute('href'))
+        .filter((href) => href && href.startsWith('#'))
+        .map((href) => href.slice(1));
+
+    const sections = sectionIds
+        .map((id) => document.getElementById(id))
+        .filter(Boolean);
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const id = entry.target.id;
+            links.forEach((link) => {
+                link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+            });
+        });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+    sections.forEach((section) => observer.observe(section));
+})();

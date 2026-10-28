@@ -1,42 +1,42 @@
-// ==========================================================================
-// LÓGICA DE CARGA Y ORDENACIÓN DINÁMICA DE LOGOS DE CLIENTES
-// Toma la variable 'clientesComex' de logos.js
-// ==========================================================================
-
-// Lee el prefijo numérico del archivo (ej: "1_logo-aramaycia.png" -> 1)
-function obtenerOrden(nombreArchivo) {
-    const partes = nombreArchivo.split('_');
-    const numero = parseInt(partes[0], 10);
-    return isNaN(numero) ? 99 : numero; // Si un archivo nuevo no tiene prefijo, va al final
-}
-
-// Renderiza las tarjetas de clientes con los estilos de index.html
-function cargarLogosClientes() {
+/* ==========================================================================
+   SM Consultores · Logos de clientes
+   Lee la lista de js/logos.js, la ordena por el prefijo numérico del archivo
+   y arma las tarjetas. Para sumar un cliente, editar solo js/logos.js.
+   ========================================================================== */
+(() => {
     const grid = document.getElementById('clients-grid');
     if (!grid) return;
 
-    const clientesOrdenados = [...clientesComex].sort((a, b) => {
-        return obtenerOrden(a.logo) - obtenerOrden(b.logo);
-    });
-
-    const estiloTarjeta = 'flex h-28 items-center justify-center rounded-lg border border-black/5 bg-white p-6 transition hover:border-gold';
-    const estiloLogo = 'max-h-14 w-auto max-w-full object-contain';
-
-    grid.innerHTML = clientesOrdenados.map(cliente => {
-        const logo = `<img src="img/logos_clientes/${cliente.logo}" alt="Logo ${cliente.nombre}" class="${estiloLogo}">`;
-
-        if (cliente.url) {
-            return `<a href="${cliente.url}" target="_blank" rel="noopener noreferrer" title="${cliente.nombre}" class="${estiloTarjeta}">${logo}</a>`;
-        }
-
-        return `<div class="${estiloTarjeta}">${logo}</div>`;
-    }).join('');
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    if (typeof clientesComex !== 'undefined') {
-        cargarLogosClientes();
-    } else {
-        console.warn('clientesComex no está definido. Verifica que js/logos.js se cargue antes de js/main.js.');
+    if (typeof clientesComex === 'undefined') {
+        console.warn('clientesComex no está definido. Verificá que js/logos.js cargue antes que js/main.js.');
+        return;
     }
-});
+
+    // "1_logo-aramaycia.png" -> 1. Sin prefijo numérico, va al final.
+    const orden = (archivo) => {
+        const numero = parseInt(archivo.split('_')[0], 10);
+        return Number.isNaN(numero) ? Number.MAX_SAFE_INTEGER : numero;
+    };
+
+    const escapar = (texto) => String(texto).replace(/[&<>"']/g, (c) => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[c]));
+
+    const tarjeta = (cliente) => {
+        const imagen = `
+            <div class="client-logo-container">
+                <img src="img/logos_clientes/${escapar(cliente.logo)}"
+                     alt="Logo ${escapar(cliente.nombre)}"
+                     class="client-logo" loading="lazy" width="200" height="120">
+            </div>`;
+
+        const contenido = cliente.url
+            ? `<a class="client-card-link" href="${escapar(cliente.url)}" target="_blank" rel="noopener noreferrer" title="${escapar(cliente.nombre)}">${imagen}</a>`
+            : imagen;
+
+        return `<div class="client-card">${contenido}</div>`;
+    };
+
+    const ordenados = [...clientesComex].sort((a, b) => orden(a.logo) - orden(b.logo));
+    grid.innerHTML = ordenados.map(tarjeta).join('');
+})();
