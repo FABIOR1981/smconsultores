@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es" data-palette="coral-menta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SM Consultores · Propuestas de paleta (dorado de marca)</title>
+<style>
+  /* Sistema: el dorado del logo es la marca (acentos, líneas, cifras).
+     Cada paleta define el color de superficie y el texto. Todas cumplen contraste AA. */
+  :root, [data-palette="verde"] {
+    --brand: #B8862B;          /* dorado del logo */
+    --primary: #1F7F78;        /* verde agua profundo: botones, bloques */
+    --primary-deep: #15605A;   /* texto de títulos sobre fondo claro */
+    --tint: #E8F5F3;           /* fondos de sección */
+    --ink: #123A36;            /* texto principal */
+    --on-primary: #FFFFFF;
+    --muted: #4B6B66;          /* texto secundario */
+    --line: #CFE6E1;
+  }
+  [data-palette="durazno"] {
+    --primary: #F2A58A; --primary-deep: #8A3D52; --tint: #FDF1EC; --on-primary: #3A1F2B;
+    --ink: #3A1F2B; --muted: #6E5260; --line: #F6DCD0;
+  }
+  [data-palette="lavanda"] {
+    --primary: #BFB0E6; --primary-deep: #5B4A8A; --tint: #F4F1FB; --on-primary: #2A2148;
+    --ink: #2A2148; --muted: #5F5680; --line: #E3DCF4;
+  }
+  [data-palette="menta"] {
+    --primary: #B9E3D5; --primary-deep: #2E6F62; --tint: #EEF9F6; --on-primary: #173B33;
+    --ink: #173B33; --muted: #4D6B64; --line: #D5EEE6;
+  }
+
+  [data-palette="coral-menta"] {
+    --primary: #F4A38F; --primary-deep: #2E6F62; --tint: #FDF2EF; --on-primary: #3A2330;
+    --ink: #3A2330; --muted: #6E5862; --line: #F6DDD6; --accent-alt: #B9E3D5;
+  }
+  [data-palette="rosa-dorado"] {
+    --primary: #E9B8C2; --primary-deep: #8E4B5C; --tint: #FCF3F5; --on-primary: #3B2430;
+    --ink: #3B2430; --muted: #6E5862; --line: #F3DCE2;
+  }
+  [data-palette="pistacho-ciruela"] {
+    --primary: #CFE5A8; --primary-deep: #5E2C49; --tint: #F4F9EC; --on-primary: #2B2A14;
+    --ink: #2B2A14; --muted: #5C6248; --line: #E2EDCF;
+  }
+  [data-palette="mantequilla"] {
+    --primary: #F5E7A3; --primary-deep: #1F7F78; --tint: #FCFAEB; --on-primary: #3A3416;
+    --ink: #2D2A14; --muted: #5E5A3D; --line: #EFE8C4;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Manrope", "Segoe UI", Arial, sans-serif; color: var(--ink); background: #fff; line-height: 1.6; font-size: 16px; }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: "Sora", "Segoe UI", sans-serif; margin: 0; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
+  .gold { color: var(--brand); }
+
+  /* Selector (solo para revisión) */
+  .picker { background: #fff; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 30; }
+  .picker .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 14px; padding-bottom: 14px; }
+  .picker .lbl { font-size: 14px; color: var(--muted); font-weight: 600; }
+  .picker .opts { display: flex; gap: 8px; flex-wrap: wrap; }
+  .picker button { font: inherit; font-size: 14px; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+  .picker button[aria-pressed="true"] { border-color: var(--primary); box-shadow: inset 0 0 0 1px var(--primary); }
+  .dots { display: inline-flex; }
+  .dots i { width: 14px; height: 14px; border-radius: 50%; display: block; border: 1px solid rgba(0,0,0,.08); }
+  .dots i + i { margin-left: -4px; }
+
+  /* Encabezado */
+  header.top { display: flex; align-items: center; justify-content: space-between; height: 92px; }
+  header.top img { height: 64px; display: block; }
+  nav { display: flex; gap: 28px; }
+  nav a { text-decoration: none; font-size: 15px; font-weight: 600; color: var(--ink); }
+  nav a:hover { color: var(--primary); }
+
+  /* Botones */
+  .btn { display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: var(--on-primary); text-decoration: none; padding: 15px 26px; font-weight: 700; font-size: 15px; border-radius: 8px; border: 2px solid var(--primary); }
+  .btn.ghost { background: transparent; color: var(--primary-deep); border-color: var(--primary-deep); margin-left: 12px; }
+
+  /* Hero */
+  .hero { background: var(--tint); padding: 104px 0 112px; position: relative; }
+  .hero-grid { display: grid; grid-template-columns: 1.02fr 1fr; gap: 72px; align-items: center; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--primary-deep); margin-bottom: 22px; }
+  .eyebrow::before { content: ""; width: 28px; height: 3px; background: var(--brand); }
+  h1 { font-size: 56px; line-height: 1.25; letter-spacing: -.02em; color: var(--primary-deep); font-weight: 700; margin-bottom: 24px; }
+  h1 .mark { background: linear-gradient(transparent 64%, var(--brand) 64%); padding: 0 2px; }
+  .lead { font-size: 19px; color: var(--muted); max-width: 540px; margin: 0 0 40px; }
+  .hero-media { position: relative; }
+  .hero-media img { width: 100%; height: 500px; object-fit: cover; border-radius: 14px; display: block; }
+  .hero-media .card { position: absolute; left: -36px; bottom: 36px; background: #fff; border-radius: 12px; padding: 20px 24px; border-left: 0; box-shadow: 0 16px 40px rgba(0,0,0,.12); max-width: 300px; }
+  .hero-media .card strong { display: block; font-family: "Sora", sans-serif; color: var(--primary-deep); font-size: 16px; margin-bottom: 4px; }
+  .hero-media .card span { color: var(--muted); font-size: 14px; }
+
+  /* Franja de especialidades */
+  .stripe { background: var(--primary-deep); color: #fff; padding: 26px 0; }
+  .stripe ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px 28px; font-size: 15px; font-weight: 600; }
+  .stripe li { display: flex; align-items: center; gap: 10px; }
+  .stripe li::before { content: ""; width: 8px; height: 8px; background: var(--brand); transform: rotate(45deg); }
+
+  /* Perfil */
+  .profile { padding: 112px 0; }
+  .profile-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; align-items: center; }
+  .profile-grid img { width: 100%; height: 540px; object-fit: cover; object-position: top; border-radius: 14px; display: block; }
+  h2 { font-size: 38px; line-height: 1.3; color: var(--primary-deep); font-weight: 700; letter-spacing: -.01em; margin-bottom: 24px; }
+  .quote { font-family: "Sora", sans-serif; font-size: 21px; font-weight: 600; color: var(--primary-deep); padding-left: 20px; border-left: 4px solid var(--brand); margin: 0 0 28px; }
+  .profile p { color: var(--muted); margin: 0 0 16px; }
+  .creds { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 24px; margin-top: 30px; }
+  .creds div { font-weight: 600; color: var(--ink); padding: 14px 16px; background: var(--tint); border-radius: 8px; font-size: 15px; }
+
+  /* Servicios */
+  .services { background: var(--tint); padding: 112px 0; }
+  .section-head { max-width: 660px; margin-bottom: 60px; }
+  .section-head p { color: var(--muted); font-size: 17px; margin: 0; }
+  .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .svc { background: #fff; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
+  .svc img { width: 100%; height: 190px; object-fit: cover; display: block; }
+  .svc .body { padding: 30px 28px 34px; }
+  .svc .num { font-family: "Sora", sans-serif; font-size: 52px; font-weight: 700; color: #9A6F1F; line-height: 1.3; display: block; margin-bottom: 14px; }
+  .svc h3 { font-size: 20px; color: var(--primary-deep); margin-bottom: 16px; line-height: 1.3; }
+  .svc ul { list-style: none; margin: 0; padding: 0; }
+  .svc li { font-size: 15px; color: var(--muted); padding: 10px 0 10px 22px; position: relative; border-top: 1px solid var(--line); }
+  .svc li::before { content: ""; position: absolute; left: 0; top: 19px; width: 8px; height: 2px; background: var(--primary); }
+  .services-quote { margin: 56px 0 0; font-family: "Sora", sans-serif; font-size: 19px; color: var(--primary-deep); max-width: 860px; }
+
+  /* Clientes */
+  .clients { padding: 112px 0; }
+  .logos { display: grid; grid-template-columns: repeat(7, 1fr); gap: 18px; margin-top: 48px; }
+  .logos a, .logos span { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: flex; align-items: center; justify-content: center; min-height: 96px; }
+  .logos img { width: 100%; max-height: 60px; object-fit: contain; }
+
+  /* Contacto */
+  .cta { background: var(--primary-deep); color: #fff; padding: 112px 0; position: relative; }
+  .cta-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 64px; align-items: center; }
+  .cta h2 { color: #fff; }
+  .cta p { opacity: .92; font-size: 18px; margin: 0; max-width: 560px; }
+  .cta .btn { background: var(--brand); border-color: var(--brand); color: #111; margin-top: 36px; }
+  .cta .info { border-left: 2px solid var(--brand); padding-left: 32px; font-size: 16px; }
+  .cta .info div { margin-bottom: 18px; }
+  .cta .info strong { display: block; color: #fff; font-family: "Sora", sans-serif; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; opacity: .95; }
+
+  footer { padding: 32px 0; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
+  footer .wrap { display: flex; justify-content: space-between; }
+
+  @media (max-width: 900px) {
+    .hero-grid, .cta-grid, .profile-grid { grid-template-columns: 1fr; gap: 40px; }
+    .svc-grid { grid-template-columns: 1fr; }
+    .logos { grid-template-columns: repeat(3, 1fr); }
+    h1 { font-size: 40px; }
+    h2 { font-size: 30px; }
+    nav { display: none; }
+    .hero-media .card { left: 16px; }
+    .creds { grid-template-columns: 1fr; }
+    .btn.ghost { margin-left: 0; margin-top: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="picker">
+  <div class="wrap">
+    <span class="lbl">Paleta con dorado de marca</span>
+    <div class="opts" role="group" aria-label="Paletas nuevas">
+      <button type="button" data-set="coral-menta" aria-pressed="true"><span class="dots"><i style="background:#F4A38F"></i><i style="background:#B9E3D5"></i></span>Coral suave y menta</button>
+      <button type="button" data-set="rosa-dorado" aria-pressed="false"><span class="dots"><i style="background:#E9B8C2"></i><i style="background:#B8862B"></i></span>Rosa empolvado y dorado</button>
+      <button type="button" data-set="pistacho-ciruela" aria-pressed="false"><span class="dots"><i style="background:#CFE5A8"></i><i style="background:#5E2C49"></i></span>Pistacho y ciruela</button>
+      <button type="button" data-set="mantequilla" aria-pressed="false"><span class="dots"><i style="background:#F5E7A3"></i><i style="background:#1F7F78"></i></span>Mantequilla y verde agua</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <header class="top">
+    <img src="../img/logo-shalon-morales-consultores.png" alt="Shalon Morales Consultores">
+    <nav>
+      <a href="#perfil">Perfil</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#clientes">Clientes</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+</div>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Comercio exterior · Gestión · Personas</div>
+        <h1>Gestión, cumplimiento y <span class="mark">mejora continua</span> para tu cadena de suministro</h1>
+        <p class="lead">Estrategia, sistemas de gestión y desarrollo organizacional para agentes de carga, importadores, despachantes de aduana y operadores logísticos.</p>
+        <a class="btn" href="https://wa.me/59899987300">Pedir reunión de diagnóstico</a><a class="btn ghost" href="#servicios">Ver servicios</a>
+      </div>
+      <div class="hero-media">
+        <img src="../img/logistica-comex.jpg" alt="Logística y comercio exterior">
+        <div class="card">
+          <strong>Diagnóstico inicial</strong>
+          <span>Presencial o remoto.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stripe" aria-label="Especialidades">
+    <div class="wrap">
+      <ul>
+        <li>Implementación de sistemas de gestión / Normas ISO</li>
+        <li>Operador Económico Calificado (OEC)</li>
+        <li>Auditorías internas y de segunda parte</li>
+        <li>Comercio exterior y cadena de suministro</li>
+        <li>Gestión y evaluación de personal</li>
+        <li>Diagnóstico de clima laboral</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="perfil" class="profile">
+    <div class="wrap profile-grid">
+      <img src="../img/perfil-shalon.jpg" alt="Shalon Morales, consultora">
+      <div>
+        <h2>Consultora experta en OEC, comercio exterior y cadena de suministro</h2>
+        <p class="quote">Experiencia real en comercio exterior aplicada a seguridad y gestión.</p>
+        <p>Licenciada en Ciencias de la Comunicación, con posgrado en Comunicación Organizacional. Auditora de sistemas certificada por AENOR y especialista en sistemas de gestión integrados, normas ISO y el Programa Operador Económico Calificado (OEC).</p>
+        <p>Acompaña a agentes de carga, importadores, despachantes de aduana, operadores logísticos y empresas de diversos sectores en la gestión de riesgos, el cumplimiento normativo y la mejora continua.</p>
+        <div class="creds">
+          <div>Auditoría de sistemas (AENOR)</div>
+          <div>Normas ISO e integración</div>
+          <div>Programa OEC</div>
+          <div>Comunicación organizacional</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios" class="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Nuestros servicios especializados</h2>
+        <p>Del diagnóstico a la certificación, con un equipo multidisciplinario y una mirada práctica para cada organización.</p>
+      </div>
+      <div class="svc-grid">
+        <article class="svc">
+          <img src="../img/servicio-sistemas.jpg" alt="Implementación de sistemas de gestión">
+          <div class="body">
+            <span class="num">01</span>
+            <h3>Sistemas de gestión, seguridad y certificaciones</h3>
+            <ul>
+              <li>Diagnóstico y análisis de brechas (ISO, OEC y otros estándares).</li>
+              <li>Implementación y fortalecimiento de sistemas de gestión.</li>
+              <li>Gestión de riesgos y seguridad en la cadena de suministro.</li>
+              <li>Auditorías internas, externas y de segunda parte.</li>
+              <li>Acompañamiento en certificación y mejora continua.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="svc">
+          <img src="../img/servicio-talento.jpg" alt="Gestión de personas">
+          <div class="body">
+            <span class="num">02</span>
+            <h3>Desarrollo organizacional y comunicación</h3>
+            <ul>
+              <li>Capacitación y formación a medida.</li>
+              <li>Desarrollo de competencias y cultura preventiva.</li>
+              <li>Comunicación organizacional y cultura corporativa.</li>
+              <li>Gestión del cambio y transformación organizacional.</li>
+              <li>Estrategias de comunicación interna.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="svc">
+          <img src="../img/servicio-capacitacion.jpg" alt="Desarrollo de equipos">
+          <div class="body">
+            <span class="num">03</span>
+            <h3>Gestión del talento y cultura</h3>
+            <ul>
+              <li>Selección de personal y evaluación por competencias.</li>
+              <li>Diagnóstico de clima laboral y desempeño.</li>
+              <li>Desarrollo de líderes y equipos de alto desempeño.</li>
+              <li>Gestión del cambio y procesos de transformación.</li>
+              <li>Mediación y resolución de conflictos.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+      <p class="services-quote">Un equipo multidisciplinario de profesionales especializados, con una visión integral y estratégica de las operaciones de comercio exterior.</p>
+    </div>
+  </section>
+
+  <section id="clientes" class="clients">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Respaldo y confianza</h2>
+        <p>La confianza de nuestros principales clientes respalda nuestros resultados.</p>
+      </div>
+      <div class="logos">
+        <a href="https://www.aramaycia.com/" target="_blank" rel="noopener noreferrer"><img src="../img/logos_clientes/1_logo-aramaycia.png" alt="Aramaycia"></a>
+        <a href="https://www.ibarra.com.uy/" target="_blank" rel="noopener noreferrer"><img src="../img/logos_clientes/2_logo-ibarra.png" alt="Ibarra Comex"></a>
+        <span><img src="../img/logos_clientes/3_logo-santarosa.png" alt="Santa Rosa"></span>
+        <a href="https://ld.com.uy/" target="_blank" rel="noopener noreferrer"><img src="../img/logos_clientes/4_logo-liguori.png" alt="Liguori Dendi"></a>
+        <a href="https://coopelectoral.com.uy/" target="_blank" rel="noopener noreferrer"><img src="../img/logos_clientes/5_logo-ace.png" alt="ACE"></a>
+        <a href="https://marleycoffee.com.uy/" target="_blank" rel="noopener noreferrer"><img src="../img/logos_clientes/6_logo-marley-coffee.png" alt="Marley Coffee"></a>
+        <a href="https://www.nyc.com.uy/" target="_blank" rel="noopener noreferrer"><img src="../img/logos_clientes/7_logo-nautilus-yacht-club.png" alt="Nautilus Yachting Club"></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="cta">
+    <div class="wrap cta-grid">
+      <div>
+        <h2>Transformemos desafíos en oportunidades de mejora</h2>
+        <p>Contanos tu situación y coordinamos una reunión de diagnóstico, presencial o remota.</p>
+        <a class="btn" href="https://wa.me/59899987300">Escribir por WhatsApp</a>
+      </div>
+      <div class="info">
+        <div><strong>Teléfono / WhatsApp</strong>(+598) 99 987 300</div>
+        <div><strong>LinkedIn</strong>Shalon Morales</div>
+        <div><strong>Correo</strong>shalonmorales@gmail.com</div>
+        <div><strong>Modalidad</strong>Presencial y remota · Montevideo, Uruguay</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 SM Consultores. Todos los derechos reservados.</span>
+    <span>Vista previa · 4 paletas nuevas</span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var buttons = document.querySelectorAll('.picker button[data-set]');
+    function set(name) {
+      root.setAttribute('data-palette', name);
+      buttons.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.set === name ? 'true' : 'false'); });
+    }
+    buttons.forEach(function (b) { b.addEventListener('click', function () { set(b.dataset.set); }); });
+  })();
+</script>
+</body>
+</html>

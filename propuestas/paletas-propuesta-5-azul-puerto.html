@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es" data-palette="azul">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SM Consultores · Propuesta de paleta azul puerto (dorado de marca)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  /* Sistema: el dorado del logo es la marca y se usa solo como acento (líneas, marcas, bordes de foco).
+     Cada paleta define superficies y texto. Contraste AA en texto de cuerpo. */
+  :root, [data-palette="azul"] {
+    --brand: #B8862B;            /* dorado del logo: acentos y botón de cierre */
+    --primary: #1B3A5C;          /* azul puerto: botones y bloques */
+    --primary-deep: #132B45;     /* títulos sobre fondo claro */
+    --tint: #F6F3EC;             /* fondos de sección, marfil cálido */
+    --ink: #17202C;              /* texto principal */
+    --on-primary: #FFFFFF;
+    --muted: #4F5B6B;            /* texto secundario */
+    --line: #DCD6C8;
+    --hero-bg: #F6F3EC;
+    --deep-bg: linear-gradient(135deg, #132B45 0%, #24476F 100%);
+    --on-brand: #111111;
+  }
+  [data-palette="grafito"] {
+    --primary: #2B2F36; --primary-deep: #1A1D22; --tint: #F2F2F0; --ink: #1A1D22; --muted: #575D66; --line: #D9D9D5;
+    --hero-bg: #F2F2F0;
+    --deep-bg: linear-gradient(135deg, #1A1D22 0%, #353B45 100%);
+  }
+  [data-palette="arena"] {
+    --primary: #24466B; --primary-deep: #1A3350; --tint: #F7EFE2; --ink: #1E2630; --muted: #56606C; --line: #E6D9C2;
+    --hero-bg: linear-gradient(160deg, #F7EFE2 0%, #FBF8F2 100%);
+    --deep-bg: linear-gradient(135deg, #1A3350 0%, #2F5680 100%);
+  }
+
+  * { box-sizing: border-box; }
+  ::selection { background: var(--brand); color: var(--on-brand); }
+  :focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; border-radius: 4px; }
+  html { scrollbar-color: var(--primary) var(--tint); }
+  body { margin: 0; font-family: "Manrope", "Segoe UI", Arial, sans-serif; color: var(--ink); background: #fff; line-height: 1.6; font-size: 16px; }
+  a { color: inherit; text-underline-offset: 3px; }
+  h1, h2, h3 { font-family: "Sora", "Segoe UI", sans-serif; margin: 0; letter-spacing: -.01em; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
+
+  /* Selector (solo para revisión) */
+  .picker { background: #fff; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 30; }
+  .picker .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 14px; padding-bottom: 14px; }
+  .picker .lbl { font-size: 14px; color: var(--muted); font-weight: 600; }
+  .picker .opts { display: flex; gap: 8px; flex-wrap: wrap; }
+  .picker button { font: inherit; font-size: 14px; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+  .picker button[aria-pressed="true"] { border-color: var(--primary); box-shadow: inset 0 0 0 1px var(--primary); }
+  .dots { display: inline-flex; }
+  .dots i { width: 14px; height: 14px; border-radius: 50%; display: block; border: 1px solid rgba(0,0,0,.08); }
+  .dots i + i { margin-left: -4px; }
+
+  /* Encabezado */
+  header.top { display: flex; align-items: center; justify-content: space-between; height: 92px; }
+  header.top img { height: 64px; display: block; }
+  nav { display: flex; gap: 28px; }
+  nav a { text-decoration: none; font-size: 15px; font-weight: 600; color: var(--ink); }
+  nav a:hover { color: var(--primary); }
+
+  /* Botones */
+  .btn { display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: var(--on-primary); text-decoration: none; padding: 15px 26px; font-weight: 700; font-size: 15px; border-radius: 8px; border: 2px solid var(--primary); transition: background-color .25s cubic-bezier(.16,1,.3,1), color .25s; }
+  .btn:hover { background: var(--primary-deep); border-color: var(--primary-deep); }
+  .btn.ghost { background: transparent; color: var(--primary); border-color: var(--primary); margin-left: 12px; }
+  .btn.ghost:hover { background: var(--primary); color: var(--on-primary); }
+
+  /* Hero: sin kicker, el título carga el peso */
+  .hero { background: var(--hero-bg); padding: 104px 0 112px; }
+  .hero-grid { display: grid; grid-template-columns: 1.02fr 1fr; gap: 72px; align-items: center; }
+  h1 { font-size: 56px; line-height: 1.3; color: var(--primary-deep); font-weight: 700; margin-bottom: 26px; text-wrap: balance; }
+  h1 .mark { background-image: linear-gradient(var(--brand), var(--brand)); background-repeat: no-repeat; background-size: 100% 6px; background-position: 0 92%; }
+  .lead { font-size: 19px; color: var(--muted); max-width: 540px; margin: 0 0 40px; }
+  .hero-media { position: relative; }
+  .hero-media img { width: 100%; height: 500px; object-fit: cover; border-radius: 14px; display: block; }
+  .hero-media .note { position: absolute; left: -36px; bottom: 36px; background: #fff; border-radius: 12px; padding: 20px 24px; box-shadow: 0 18px 44px rgba(0,0,0,.14); max-width: 300px; }
+  .hero-media .note strong { display: block; font-family: "Sora", sans-serif; color: var(--primary-deep); font-size: 16px; margin-bottom: 4px; }
+  .hero-media .note span { color: var(--muted); font-size: 14px; }
+
+  /* Franja de especialidades */
+  .stripe { background: var(--deep-bg); color: #fff; padding: 26px 0; }
+  .stripe ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px 28px; font-size: 15px; font-weight: 600; }
+  .stripe li { display: flex; align-items: center; gap: 10px; }
+  .stripe li::before { content: ""; width: 7px; height: 7px; background: var(--brand); border-radius: 1px; transform: rotate(45deg); }
+
+  /* Perfil */
+  .profile { padding: 112px 0; }
+  .profile-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; align-items: center; }
+  .profile-grid img { width: 100%; height: 540px; object-fit: cover; object-position: top; border-radius: 14px; display: block; }
+  h2 { font-size: 38px; line-height: 1.3; color: var(--primary-deep); font-weight: 700; margin-bottom: 24px; text-wrap: balance; }
+  .quote { font-family: "Sora", sans-serif; font-size: 21px; font-weight: 600; color: var(--primary-deep); margin: 0 0 28px; }
+  .profile p { color: var(--muted); margin: 0 0 16px; max-width: 62ch; }
+  .creds { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 30px; }
+  .creds div { font-weight: 600; color: var(--ink); padding: 14px 16px; background: var(--tint); border-radius: 8px; font-size: 15px; }
+
+  /* Servicios: filas con separadores, no tarjetas */
+  .services { background: var(--tint); padding: 112px 0; }
+  .section-head { max-width: 660px; margin-bottom: 56px; }
+  .section-head p { color: var(--muted); font-size: 17px; margin: 0; }
+  .svc { display: grid; grid-template-columns: 1fr 1.25fr; gap: 56px; align-items: start; padding: 48px 0; border-top: 1px solid var(--line); }
+  .svc:last-of-type { border-bottom: 1px solid var(--line); }
+  .svc img { width: 100%; height: 260px; object-fit: cover; border-radius: 14px; display: block; }
+  .svc h3 { font-size: 22px; color: var(--primary-deep); margin-bottom: 18px; line-height: 1.3; }
+  .svc ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 28px; }
+  .svc li { font-size: 15px; color: var(--muted); padding-left: 20px; position: relative; }
+  .svc li::before { content: ""; position: absolute; left: 0; top: 11px; width: 10px; height: 2px; background: var(--brand); }
+  .services-quote { margin: 56px 0 0; font-family: "Sora", sans-serif; font-size: 19px; color: var(--primary-deep); max-width: 860px; }
+
+  /* Clientes */
+  .clients { padding: 112px 0; }
+  .logos { display: grid; grid-template-columns: repeat(7, 1fr); gap: 18px; margin-top: 48px; }
+  .logos a, .logos span { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: flex; align-items: center; justify-content: center; min-height: 96px; transition: border-color .25s; }
+  .logos a:hover { border-color: var(--primary); }
+  .logos img { width: 100%; max-height: 60px; object-fit: contain; }
+
+  /* Contacto */
+  .cta { background: var(--deep-bg); color: #fff; padding: 112px 0; }
+  .cta-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 64px; align-items: center; }
+  .cta h2 { color: #fff; }
+  .cta p { opacity: .92; font-size: 18px; margin: 0; max-width: 560px; }
+  .cta .btn { background: var(--brand); border-color: var(--brand); color: var(--on-brand); margin-top: 36px; }
+  .cta .btn:hover { background: #A37624; border-color: #A37624; }
+  .cta .info { font-size: 16px; display: grid; gap: 22px; }
+  .cta .info strong { display: block; color: #fff; font-family: "Sora", sans-serif; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; opacity: .85; font-weight: 600; }
+  .cta .info ::selection { background: var(--brand); }
+
+  footer { padding: 32px 0; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  @media (max-width: 900px) {
+    .hero-grid, .cta-grid, .profile-grid, .svc { grid-template-columns: 1fr; gap: 40px; }
+    .svc { padding: 36px 0; }
+    .svc ul { grid-template-columns: 1fr; }
+    .logos { grid-template-columns: repeat(3, 1fr); }
+    h1 { font-size: 40px; }
+    h2 { font-size: 30px; }
+    nav { display: none; }
+    .hero-media .note { left: 16px; }
+    .creds { grid-template-columns: 1fr; }
+    .btn.ghost { margin-left: 0; margin-top: 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="picker">
+  <div class="wrap">
+    <span class="lbl">Paleta azul puerto con dorado de marca</span>
+    <div class="opts" role="group" aria-label="Paletas">
+      <button type="button" data-set="azul" aria-pressed="true"><span class="dots"><i style="background:#1B3A5C"></i><i style="background:#B8862B"></i></span>Azul puerto</button>
+      <button type="button" data-set="grafito" aria-pressed="false"><span class="dots"><i style="background:#2B2F36"></i><i style="background:#B8862B"></i></span>Grafito y dorado</button>
+      <button type="button" data-set="arena" aria-pressed="false"><span class="dots"><i style="background:#F7EFE2"></i><i style="background:#24466B"></i></span>Arena y azul</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <header class="top">
+    <img src="../img/logo-shalon-morales-consultores.png" alt="Shalon Morales Consultores">
+    <nav>
+      <a href="#perfil">Perfil</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#clientes">Clientes</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+</div>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Gestión, cumplimiento y <span class="mark">mejora continua</span> para su cadena de suministro</h1>
+        <p class="lead">Sistemas de gestión, auditorías y desarrollo organizacional para agentes de carga, importadores, despachantes de aduana y operadores logísticos.</p>
+        <a class="btn" href="https://wa.me/59899987300">Pedir reunión de diagnóstico</a><a class="btn ghost" href="#servicios">Ver servicios</a>
+      </div>
+      <div class="hero-media">
+        <img src="../img/logistica-comex.jpg" alt="Logística y comercio exterior">
+        <div class="note">
+          <strong>Diagnóstico inicial</strong>
+          <span>Presencial o remoto, en Montevideo y a distancia.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stripe" aria-label="Especialidades">
+    <div class="wrap">
+      <ul>
+        <li>Normas ISO e implementación de sistemas de gestión</li>
+        <li>Operador Económico Calificado (OEC)</li>
+        <li>Auditorías internas y de segunda parte</li>
+        <li>Comercio exterior y cadena de suministro</li>
+        <li>Selección y evaluación por competencias</li>
+        <li>Diagnóstico de clima laboral</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="perfil" class="profile">
+    <div class="wrap profile-grid">
+      <img src="../img/perfil-shalon.jpg" alt="Shalon Morales, consultora">
+      <div>
+        <h2>Consultora experta en OEC, comercio exterior y cadena de suministro</h2>
+        <p class="quote">Experiencia real en comercio exterior aplicada a seguridad y gestión.</p>
+        <p>Licenciada en Ciencias de la Comunicación, con posgrado en Comunicación Organizacional. Auditora de sistemas certificada por AENOR y especialista en sistemas de gestión integrados, normas ISO y el Programa Operador Económico Calificado.</p>
+        <p>Acompaña a agentes de carga, importadores, despachantes de aduana, operadores logísticos y empresas de diversos sectores en la gestión de riesgos, el cumplimiento normativo y la mejora continua.</p>
+        <div class="creds">
+          <div>Auditoría de sistemas (AENOR)</div>
+          <div>Normas ISO e integración</div>
+          <div>Programa OEC</div>
+          <div>Comunicación organizacional</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios" class="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Nuestros servicios especializados</h2>
+        <p>Del diagnóstico a la certificación, con un equipo multidisciplinario y una mirada práctica para cada organización.</p>
+      </div>
+
+      <article class="svc">
+        <img src="../img/servicio-sistemas.jpg" alt="Implementación de sistemas de gestión">
+        <div>
+          <h3>Sistemas de gestión, seguridad y certificaciones</h3>
+          <ul>
+            <li>Diagnóstico y análisis de brechas (ISO, OEC y otros estándares).</li>
+            <li>Implementación y fortalecimiento de sistemas de gestión.</li>
+            <li>Gestión de riesgos y seguridad en la cadena de suministro.</li>
+            <li>Auditorías internas, externas y de segunda parte.</li>
+            <li>Acompañamiento en certificación y mejora continua.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="svc">
+        <img src="../img/servicio-talento.jpg" alt="Gestión de personas">
+        <div>
+          <h3>Desarrollo organizacional y comunicación</h3>
+          <ul>
+            <li>Capacitación y formación a medida.</li>
+            <li>Desarrollo de competencias y cultura preventiva.</li>
+            <li>Comunicación organizacional y cultura corporativa.</li>
+            <li>Gestión del cambio y transformación organizacional.</li>
+            <li>Estrategias de comunicación interna.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="svc">
+        <img src="../img/servicio-capacitacion.jpg" alt="Desarrollo de equipos">
+        <div>
+          <h3>Gestión del talento y cultura</h3>
+          <ul>
+            <li>Selección de personal y evaluación por competencias.</li>
+            <li>Diagnóstico de clima laboral y desempeño.</li>
+            <li>Desarrollo de líderes y equipos de alto desempeño.</li>
+            <li>Gestión del cambio y procesos de transformación.</li>
+            <li>Mediación y resolución de conflictos.</li>
+          </ul>
+        </div>
+      </article>
+
+      <p class="services-quote">Un equipo multidisciplinario de profesionales especializados, con una visión integral y estratégica de las operaciones de comercio exterior.</p>
+    </div>
+  </section>
+
+  <section id="clientes" class="clients">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Respaldo y confianza</h2>
+        <p>La confianza de nuestros principales clientes respalda nuestros resultados.</p>
+      </div>
+      <div class="logos">
+        <a href="https://www.aramaycia.com/" target="_blank" rel="noopener noreferrer"><img src="../img/logos_clientes/1_logo-aramaycia.png" alt="Aramaycia"></a>
+        <a href="https://www.ibarra.com.uy/" target="_blank" rel="noopener noreferrer"><img src="../img/logos_clientes/2_logo-ibarra.png" alt="Ibarra Comex"></a>
+        <span><img src="../img/logos_clientes/3_logo-santarosa.png" alt="Santa Rosa"></span>
+        <a href="https://ld.com.uy/" target="_blank" rel="noopener noreferrer"><img src="../img/logos_clientes/4_logo-liguori.png" alt="Liguori Dendi"></a>
+        <a href="https://coopelectoral.com.uy/" target="_blank" rel="noopener noreferrer"><img src="../img/logos_clientes/5_logo-ace.png" alt="ACE"></a>
+        <a href="https://marleycoffee.com.uy/" target="_blank" rel="noopener noreferrer"><img src="../img/logos_clientes/6_logo-marley-coffee.png" alt="Marley Coffee"></a>
+        <a href="https://www.nyc.com.uy/" target="_blank" rel="noopener noreferrer"><img src="../img/logos_clientes/7_logo-nautilus-yacht-club.png" alt="Nautilus Yachting Club"></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="cta">
+    <div class="wrap cta-grid">
+      <div>
+        <h2>Transformemos desafíos en oportunidades de mejora</h2>
+        <p>Cuéntenos su situación y coordinamos una reunión de diagnóstico, presencial o remota.</p>
+        <a class="btn" href="https://wa.me/59899987300">Escribir por WhatsApp</a>
+      </div>
+      <div class="info">
+        <div><strong>Teléfono / WhatsApp</strong>(+598) 99 987 300</div>
+        <div><strong>LinkedIn</strong>Shalon Morales</div>
+        <div><strong>Correo</strong>shalonmorales@gmail.com</div>
+        <div><strong>Modalidad</strong>Presencial y remota · Montevideo, Uruguay</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 SM Consultores. Todos los derechos reservados.</span>
+    <span>Propuesta de paleta · azul puerto</span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var buttons = document.querySelectorAll('.picker button[data-set]');
+    function set(name) {
+      root.setAttribute('data-palette', name);
+      buttons.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.set === name ? 'true' : 'false'); });
+    }
+    buttons.forEach(function (b) { b.addEventListener('click', function () { set(b.dataset.set); }); });
+  })();
+</script>
+</body>
+</html>
