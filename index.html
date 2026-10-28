@@ -12,6 +12,7 @@
             --ink: #1b1b1b;
             --muted: #6b6b6b;
             --line: #d9d9d2;
+            --accent: #1f4e8c;
         }
         * { box-sizing: border-box; }
         body {
@@ -24,7 +25,7 @@
             padding: 2.5rem clamp(1.25rem, 4vw, 3rem) 1rem;
         }
         header h1 {
-            margin: 0 0 0.4rem;
+            margin: 0 0 .4rem;
             font-size: clamp(1.5rem, 1.1rem + 1.2vw, 2.1rem);
             font-weight: 700;
         }
@@ -32,12 +33,42 @@
             margin: 0;
             color: var(--muted);
         }
-        main {
+
+        .selector {
+            display: inline-flex;
+            margin: 1.5rem clamp(1.25rem, 4vw, 3rem) 0;
+            padding: .3rem;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+        }
+        .selector button {
+            font: inherit;
+            font-weight: 600;
+            padding: .6rem 1.3rem;
+            border: 0;
+            border-radius: 999px;
+            background: transparent;
+            color: var(--ink);
+            cursor: pointer;
+        }
+        .selector button[aria-pressed="true"] {
+            background: var(--accent);
+            color: #ffffff;
+        }
+        .selector button:focus-visible {
+            outline: 3px solid #7aa7ff;
+            outline-offset: 2px;
+        }
+
+        main.grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
             padding: 1.5rem clamp(1.25rem, 4vw, 3rem) 3rem;
         }
+        main.grid[hidden] { display: none; }
+
         .card {
             display: flex;
             flex-direction: column;
@@ -47,12 +78,12 @@
             overflow: hidden;
             text-decoration: none;
             color: var(--ink);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform .2s ease, box-shadow .2s ease;
         }
         .card:hover,
         .card:focus-visible {
             transform: translateY(-3px);
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, .08);
             outline: none;
         }
         .card:focus-visible {
@@ -83,11 +114,9 @@
             gap: 1rem;
             padding: 1rem 1.2rem;
         }
-        .info strong {
-            font-size: 1.05rem;
-        }
+        .info strong { font-size: 1.05rem; }
         .info span {
-            font-size: 0.9rem;
+            font-size: .9rem;
             color: var(--muted);
         }
         .info .go {
@@ -101,53 +130,91 @@
 
     <header>
         <h1>Versiones de la web · SM Consultores</h1>
-        <p>Hacé clic en una miniatura para abrir esa versión.</p>
+        <p>Elegí la ronda y hacé clic en una miniatura para abrir esa versión.</p>
     </header>
 
-    <main>
+    <div class="selector" role="group" aria-label="Elegir ronda">
+        <button type="button" data-ronda="1" aria-pressed="true">Ronda 1</button>
+        <button type="button" data-ronda="2" aria-pressed="false">Ronda 2</button>
+    </div>
+
+    <!-- ===================== RONDA 1 ===================== -->
+    <main class="grid" id="ronda-1">
         <a class="card" href="index1.html">
             <div class="thumb"><iframe src="index1.html" title="Versión 1: verde" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></div>
             <div class="info"><strong>Versión 1</strong><span>Verde profundo</span><span class="go">Abrir →</span></div>
         </a>
-
         <a class="card" href="index2.html">
             <div class="thumb"><iframe src="index2.html" title="Versión 2: azul marino" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></div>
             <div class="info"><strong>Versión 2</strong><span>Azul marino</span><span class="go">Abrir →</span></div>
         </a>
-
         <a class="card" href="index3.html">
             <div class="thumb"><iframe src="index3.html" title="Versión 3: editorial" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></div>
             <div class="info"><strong>Versión 3</strong><span>Editorial</span><span class="go">Abrir →</span></div>
         </a>
-
         <a class="card" href="index4.html">
             <div class="thumb"><iframe src="index4.html" title="Versión 4: dorado protagonista" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></div>
             <div class="info"><strong>Versión 4</strong><span>Dorado protagonista</span><span class="go">Abrir →</span></div>
         </a>
-
         <a class="card" href="index5.html">
-            <div class="thumb"><iframe src="index5.html" title="Versión 5: columna lateral" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></div>
+            <div class="thumb"><iframe src="index5.html" title="Versión 5: columna bordó y dorado" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></div>
             <div class="info"><strong>Versión 5</strong><span>Columna bordó y dorado</span><span class="go">Abrir →</span></div>
         </a>
-
         <a class="card" href="index6.html">
-            <div class="thumb"><iframe src="index6.html" title="Versión 6: minimalista" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></div>
+            <div class="thumb"><iframe src="index6.html" title="Versión 6: blanco minimalista" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></div>
             <div class="info"><strong>Versión 6</strong><span>Blanco minimalista</span><span class="go">Abrir →</span></div>
         </a>
-
         <a class="card" href="index7.html">
             <div class="thumb"><iframe src="index7.html" title="Versión 7: dorado pastel" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></div>
             <div class="info"><strong>Versión 7</strong><span>Dorado pastel</span><span class="go">Abrir →</span></div>
         </a>
-
         <a class="card" href="index8.html">
-            <div class="thumb"><iframe src="index8.html" title="Versión 8: columna pastel" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></div>
-            <div class="info"><strong>Versión 8</strong><span>Rosa empolvado</span><span class="go">Abrir →</span></div>
+            <div class="thumb"><iframe src="index8.html" title="Versión 8: columna azul" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></div>
+            <div class="info"><strong>Versión 8</strong><span>Columna azul</span><span class="go">Abrir →</span></div>
         </a>
-
         <a class="card" href="index9.html">
             <div class="thumb"><iframe src="index9.html" title="Versión 9: minimalista pastel" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></div>
             <div class="info"><strong>Versión 9</strong><span>Minimalista pastel</span><span class="go">Abrir →</span></div>
+        </a>
+    </main>
+
+    <!-- ===================== RONDA 2 ===================== -->
+    <main class="grid" id="ronda-2" hidden>
+        <a class="card" href="opcion1.html">
+            <div class="thumb"><iframe src="opcion1.html" title="Opción 1: referencia (index8)" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></div>
+            <div class="info"><strong>Opción 1</strong><span>Referencia (index8)</span><span class="go">Abrir →</span></div>
+        </a>
+        <a class="card" href="opcion2.html">
+            <div class="thumb"><iframe src="opcion2.html" title="Opción 2: azul marino" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></div>
+            <div class="info"><strong>Opción 2</strong><span>Azul marino, logo sin fondo</span><span class="go">Abrir →</span></div>
+        </a>
+        <a class="card" href="opcion3.html">
+            <div class="thumb"><iframe src="opcion3.html" title="Opción 3: verde petróleo" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></div>
+            <div class="info"><strong>Opción 3</strong><span>Verde petróleo y dorado</span><span class="go">Abrir →</span></div>
+        </a>
+        <a class="card" href="opcion4.html">
+            <div class="thumb"><iframe src="opcion4.html" title="Opción 4: azul petróleo con placa crema" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></div>
+            <div class="info"><strong>Opción 4</strong><span>Azul petróleo, placa crema</span><span class="go">Abrir →</span></div>
+        </a>
+        <a class="card" href="opcion5.html">
+            <div class="thumb"><iframe src="opcion5.html" title="Opción 5: gris azulado con placa dorada" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></div>
+            <div class="info"><strong>Opción 5</strong><span>Gris azulado, placa dorada</span><span class="go">Abrir →</span></div>
+        </a>
+        <a class="card" href="opcion6.html">
+            <div class="thumb"><iframe src="opcion6.html" title="Opción 6: azul noche con acentos dorados" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></div>
+            <div class="info"><strong>Opción 6</strong><span>Azul noche, acentos dorados</span><span class="go">Abrir →</span></div>
+        </a>
+        <a class="card" href="opcion7.html">
+            <div class="thumb"><iframe src="opcion7.html" title="Opción 7: azul cobalto con marco dorado" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></div>
+            <div class="info"><strong>Opción 7</strong><span>Azul cobalto, marco dorado</span><span class="go">Abrir →</span></div>
+        </a>
+        <a class="card" href="opcion8.html">
+            <div class="thumb"><iframe src="opcion8.html" title="Opción 8: azul degradado" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></div>
+            <div class="info"><strong>Opción 8</strong><span>Azul degradado</span><span class="go">Abrir →</span></div>
+        </a>
+        <a class="card" href="opcion9.html">
+            <div class="thumb"><iframe src="opcion9.html" title="Opción 9: azul mate con filete dorado" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></div>
+            <div class="info"><strong>Opción 9</strong><span>Azul mate, filete dorado</span><span class="go">Abrir →</span></div>
         </a>
     </main>
 
@@ -155,14 +222,27 @@
         // Escala cada página de 1280px para que quepa en la miniatura.
         const ANCHO_PAGINA = 1280;
         const ajustar = () => {
-            document.querySelectorAll('.thumb').forEach((thumb) => {
+            document.querySelectorAll('main.grid:not([hidden]) .thumb').forEach((thumb) => {
                 const iframe = thumb.querySelector('iframe');
                 iframe.style.transform = `scale(${thumb.clientWidth / ANCHO_PAGINA})`;
             });
         };
+
+        const botones = document.querySelectorAll('.selector button');
+        const mostrarRonda = (ronda) => {
+            document.getElementById('ronda-1').hidden = ronda !== '1';
+            document.getElementById('ronda-2').hidden = ronda !== '2';
+            botones.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.ronda === ronda)));
+            history.replaceState(null, '', ronda === '2' ? '#ronda2' : '#ronda1');
+            ajustar();
+        };
+
+        botones.forEach((b) => b.addEventListener('click', () => mostrarRonda(b.dataset.ronda)));
         window.addEventListener('resize', ajustar);
         window.addEventListener('load', ajustar);
-        ajustar();
+
+        // Abre la ronda indicada en la dirección (#ronda2) o la ronda 1 por defecto.
+        mostrarRonda(location.hash === '#ronda2' ? '2' : '1');
     </script>
 </body>
 </html>
