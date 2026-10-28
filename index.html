@@ -14,7 +14,8 @@
                 extend: {
                     colors: {
                         gold: { DEFAULT: '#B8862B', soft: '#E7D2A8', text: '#8F6418' },
-                                                ink: '#1C1C21',
+                                                ink: '#22302B',
+                        green: { DEFAULT: '#245E4F', deep: '#1A463B' },
                         muted: '#55555E',
                         mist: '#F4F4F2'
                     },
@@ -28,7 +29,7 @@
     </script>
     <style>
         html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
-        ::selection { background: #B8862B; color: #1C1C21; }
+        ::selection { background: #B8862B; color: #22302B; }
         :focus-visible { outline: 2px solid #B8862B; outline-offset: 3px; border-radius: 4px; }
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
@@ -66,7 +67,7 @@
                     <h1 class="mt-6 font-display text-4xl font-semibold leading-[1.12] tracking-tight text-ink md:text-6xl">Estrategia, Sistema de Gestión y Desarrollo Organizacional</h1>
                     <p class="mt-6 max-w-prose text-lg leading-relaxed text-muted">Acompañamos a las Organizaciones en el fortalecimiento de su gestión, el cumplimiento normativo y la mejora continua, mediante la implementación de sistemas de gestión, auditorías en la cadena de suministro y procesos de certificación alineados a estándares internacionales. Integramos además la comunicación organizacional y la gestión de personas como factores clave para impulsar el cambio, fortalecer la cultura corporativa, desarrollar competencias y asegurar la sostenibilidad de los resultados. Complementamos este enfoque con herramientas de comunicación organizacional, gestión del cambio y desarrollo de personas, acompañando a la Dirección en la definición de estrategias, la toma de decisiones y el fortalecimiento de la cultura organizacional para alcanzar resultados sostenibles.</p>
                     <div class="mt-10 flex flex-wrap gap-3">
-                        <a href="#contacto" class="rounded-md bg-gold px-6 py-3.5 font-semibold text-ink transition hover:bg-gold-text hover:text-white">Contacto Directo</a>
+                        <a href="#contacto" class="rounded-md bg-green px-6 py-3.5 font-semibold text-white transition hover:bg-green-deep">Contacto Directo</a>
                         <a href="#servicios" class="rounded-md border border-ink/20 px-6 py-3.5 font-semibold text-ink transition hover:border-bordo hover:text-gold-text">Nuestros Servicios</a>
                     </div>
                 </div>
@@ -155,7 +156,7 @@
         </section>
 
         <!-- Contacto -->
-        <section id="contacto" class="bg-gold text-ink">
+        <section id="contacto" class="bg-mist text-ink">
             <div class="mx-auto grid max-w-6xl gap-14 px-5 py-20 md:grid-cols-12 md:px-8 md:py-28">
                 <div class="md:col-span-7">
                     <h2 class="font-display text-3xl font-semibold leading-tight md:text-5xl">Coordinemos una reunion</h2>
@@ -175,32 +176,32 @@
 
                     <div class="mt-8 space-y-4">
                         <div class="flex items-center gap-4 rounded-lg border border-ink/20 p-5">
-                            <span class="grid size-11 shrink-0 place-items-center rounded-full bg-white/30 text-ink" aria-hidden="true">
+                            <span class="grid size-11 shrink-0 place-items-center rounded-full bg-green/10 text-green" aria-hidden="true">
                                 <svg viewBox="0 0 24 24" class="size-5" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4V21H3V9.75Zm6.5 0h3.83v1.54h.05c.53-1 1.84-2.06 3.79-2.06 4.05 0 4.8 2.67 4.8 6.13V21h-4v-4.9c0-1.17-.02-2.68-1.63-2.68-1.64 0-1.89 1.28-1.89 2.6V21h-4V9.75Z"/></svg>
                             </span>
                             <div class="min-w-0">
                                 <span class="channel-label block text-sm text-ink/75">LinkedIn</span>
-                                <a href="https://www.linkedin.com/in/shalonmorales/" target="_blank" rel="noopener noreferrer" class="font-semibold text-ink underline-offset-4 hover:underline">Shalon Morales</a>
+                                <a href="https://www.linkedin.com/in/shalonmorales/" target="_blank" rel="noopener noreferrer" class="font-semibold text-green underline-offset-4 hover:underline">Shalon Morales</a>
                             </div>
                         </div>
 
                         <div class="flex items-center gap-4 rounded-lg border border-ink/20 p-5">
-                            <span class="grid size-11 shrink-0 place-items-center rounded-full bg-white/30 text-ink" aria-hidden="true">
+                            <span class="grid size-11 shrink-0 place-items-center rounded-full bg-green/10 text-green" aria-hidden="true">
                                 <svg viewBox="0 0 24 24" class="size-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 12l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2Z"/></svg>
                             </span>
                             <div class="min-w-0">
                                 <span class="channel-label block text-sm text-ink/75">Teléfono / WhatsApp</span>
-                                <a href="https://wa.me/59899987300" target="_blank" rel="noopener noreferrer" class="font-semibold text-ink underline-offset-4 hover:underline">(+598) 99 987 300</a>
+                                <a href="https://wa.me/59899987300" target="_blank" rel="noopener noreferrer" class="font-semibold text-green underline-offset-4 hover:underline">(+598) 99 987 300</a>
                             </div>
                         </div>
 
                         <div class="flex items-center gap-4 rounded-lg border border-ink/20 p-5">
-                            <span class="grid size-11 shrink-0 place-items-center rounded-full bg-white/30 text-ink" aria-hidden="true">
+                            <span class="grid size-11 shrink-0 place-items-center rounded-full bg-green/10 text-green" aria-hidden="true">
                                 <svg viewBox="0 0 24 24" class="size-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6 8.5-6"/></svg>
                             </span>
                             <div class="min-w-0">
                                 <span class="channel-label block text-sm text-ink/75">Correo electrónico</span>
-                                <a href="mailto:shalonmorales@gmail.com" class="break-all font-semibold text-ink underline-offset-4 hover:underline">shalonmorales@gmail.com</a>
+                                <a href="mailto:shalonmorales@gmail.com" class="break-all font-semibold text-green underline-offset-4 hover:underline">shalonmorales@gmail.com</a>
                             </div>
                         </div>
                     </div>
