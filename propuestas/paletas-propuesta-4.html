@@ -13,20 +13,21 @@
     --primary-deep: #15605A;   /* texto de títulos sobre fondo claro */
     --tint: #E8F5F3;           /* fondos de sección */
     --ink: #123A36;            /* texto principal */
+    --on-primary: #FFFFFF;
     --muted: #4B6B66;          /* texto secundario */
     --line: #CFE6E1;
   }
-  [data-palette="salvia"] {
-    --primary: #A05C6B; --primary-deep: #7A3E4E; --tint: #FBF0F2;
-    --ink: #3D2630; --muted: #6E5560; --line: #F0DCE2;
+  [data-palette="durazno"] {
+    --primary: #F2A58A; --primary-deep: #8A3D52; --tint: #FDF1EC; --on-primary: #3A1F2B;
+    --ink: #3A1F2B; --muted: #6E5260; --line: #F6DCD0;
   }
-  [data-palette="malva"] {
-    --primary: #7D3A55; --primary-deep: #5C2740; --tint: #F7EEF2;
-    --ink: #36182A; --muted: #6E5562; --line: #EBD9E2;
+  [data-palette="lavanda"] {
+    --primary: #BFB0E6; --primary-deep: #5B4A8A; --tint: #F4F1FB; --on-primary: #2A2148;
+    --ink: #2A2148; --muted: #5F5680; --line: #E3DCF4;
   }
-  [data-palette="coral"] {
-    --primary: #4A7C3F; --primary-deep: #2F5A29; --tint: #F2F7EC;
-    --ink: #1F3A1A; --muted: #4E6248; --line: #DAE7D2;
+  [data-palette="menta"] {
+    --primary: #B9E3D5; --primary-deep: #2E6F62; --tint: #EEF9F6; --on-primary: #173B33;
+    --ink: #173B33; --muted: #4D6B64; --line: #D5EEE6;
   }
 
   * { box-sizing: border-box; }
@@ -55,7 +56,7 @@
   nav a:hover { color: var(--primary); }
 
   /* Botones */
-  .btn { display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: #fff; text-decoration: none; padding: 15px 26px; font-weight: 700; font-size: 15px; border-radius: 8px; border: 2px solid var(--primary); }
+  .btn { display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: var(--on-primary); text-decoration: none; padding: 15px 26px; font-weight: 700; font-size: 15px; border-radius: 8px; border: 2px solid var(--primary); }
   .btn.ghost { background: transparent; color: var(--primary-deep); border-color: var(--primary-deep); margin-left: 12px; }
 
   /* Hero */
@@ -142,9 +143,9 @@
     <span class="lbl">Paleta con dorado de marca</span>
     <div class="opts" role="group" aria-label="Paletas">
       <button type="button" data-set="verde" aria-pressed="true"><span class="dots"><i style="background:#1F7F78"></i><i style="background:#B8862B"></i></span>Verde agua</button>
-      <button type="button" data-set="salvia" aria-pressed="false"><span class="dots"><i style="background:#A05C6B"></i><i style="background:#B8862B"></i></span>Rosa empolvado</button>
-      <button type="button" data-set="malva" aria-pressed="false"><span class="dots"><i style="background:#7D3A55"></i><i style="background:#B8862B"></i></span>Vino suave</button>
-      <button type="button" data-set="coral" aria-pressed="false"><span class="dots"><i style="background:#4A7C3F"></i><i style="background:#B8862B"></i></span>Pistacho</button>
+      <button type="button" data-set="durazno" aria-pressed="false"><span class="dots"><i style="background:#F2A58A"></i><i style="background:#B8862B"></i></span>Durazno y ciruela</button>
+      <button type="button" data-set="lavanda" aria-pressed="false"><span class="dots"><i style="background:#BFB0E6"></i><i style="background:#1F7F78"></i></span>Lavanda y verde agua</button>
+      <button type="button" data-set="menta" aria-pressed="false"><span class="dots"><i style="background:#B9E3D5"></i><i style="background:#B8862B"></i></span>Menta y dorado</button>
     </div>
   </div>
 </div>
