@@ -385,12 +385,18 @@ ul {
 
 .pull-quote {
     margin: 0 0 1.6rem;
-    padding-left: 1.2rem;
-    border-left: 3px solid var(--gold);
     font-family: var(--font-display);
     font-size: 1.25rem;
     font-style: italic;
     color: var(--ink);
+}
+.pull-quote::before {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 2px;
+    margin-bottom: 1rem;
+    background: var(--gold);
 }
 
 /* ---------- Servicios ---------- */
