@@ -29,5 +29,10 @@ const clientesComex = [
         nombre: "Marley Coffee",
         logo: "6_logo-marley-coffee.png",
         url: "https://marleycoffee.com.uy/"
+    },
+    {
+        nombre: "Nautilus Yachting Club",
+        logo: "7_logo-nautilus-yacht-club.svg",
+        url: "https://www.nyc.com.uy/"
     }
 ];
