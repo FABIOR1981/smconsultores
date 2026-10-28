@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta 1 · Documento de comercio exterior · SM Consultores</title>
+<style>
+  :root { --paper:#f6f1e7; --ink:#14233b; --navy:#1d3557; --orange:#e2692c; --line:#c9bfa9; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink); font-family: Georgia, "Times New Roman", serif; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 48px 24px; }
+  .topbar { display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid var(--navy); padding-bottom:12px; }
+  .brand { font-weight:700; letter-spacing:.04em; font-size:18px; color:var(--navy); }
+  .code { font-family: "Courier New", monospace; font-size:12px; color:var(--navy); border:1px solid var(--navy); padding:4px 8px; }
+  .hero { display:grid; grid-template-columns: 1.4fr 1fr; gap:40px; margin-top:48px; }
+  .eyebrow { font-family:"Courier New", monospace; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--orange); }
+  h1 { font-size:44px; line-height:1.1; margin:12px 0 20px; color:var(--navy); font-weight:700; }
+  p.lead { font-size:18px; line-height:1.6; margin:0 0 28px; }
+  .cta { display:inline-block; background:var(--orange); color:#fff; text-decoration:none; font-family:"Courier New", monospace; font-weight:700; padding:14px 22px; border:2px solid var(--orange); }
+  .cta.ghost { background:transparent; color:var(--navy); border-color:var(--navy); margin-left:12px; }
+  .form-box { border:2px solid var(--navy); background:#fffdf8; padding:24px; font-family:"Courier New", monospace; font-size:13px; }
+  .form-box .row { display:flex; justify-content:space-between; border-bottom:1px dashed var(--line); padding:10px 0; }
+  .form-box .stamp { margin-top:16px; color:var(--orange); font-weight:700; border:2px solid var(--orange); display:inline-block; padding:6px 10px; transform:rotate(-3deg); }
+  .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin-top:56px; border:2px solid var(--navy); }
+  .cell { padding:24px 18px; border-right:1px solid var(--navy); background:#fffdf8; }
+  .cell:last-child { border-right:none; }
+  .cell .n { font-family:"Courier New", monospace; color:var(--orange); font-size:12px; }
+  .cell h3 { margin:8px 0 6px; font-size:17px; color:var(--navy); }
+  .cell p { margin:0; font-size:14px; line-height:1.5; }
+  footer { margin-top:40px; font-family:"Courier New", monospace; font-size:12px; color:var(--navy); }
+  @media (max-width: 800px) { .hero{grid-template-columns:1fr;} .grid{grid-template-columns:1fr 1fr;} .cell{border-bottom:1px solid var(--navy);} h1{font-size:34px;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">SM CONSULTORES</div>
+    <div class="code">FORM. SMC-01 · MONTEVIDEO</div>
+  </div>
+
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Sistemas de gestión y mejora organizacional</div>
+      <h1>Estrategia, sistema de gestión y desarrollo organizacional</h1>
+      <p class="lead">Acompañamos a las organizaciones en el fortalecimiento de su gestión, el cumplimiento normativo y la mejora continua, con foco en la cadena de suministro y el comercio exterior.</p>
+      <a class="cta" href="https://wa.me/59899987300">Pedir reunión de diagnóstico</a>
+      <a class="cta ghost" href="#servicios">Ver servicios</a>
+    </div>
+    <div class="form-box">
+      <div class="row"><span>SOLICITANTE</span><span>Agente de carga / Importador</span></div>
+      <div class="row"><span>SERVICIO</span><span>Diagnóstico inicial</span></div>
+      <div class="row"><span>MODALIDAD</span><span>Presencial y remota</span></div>
+      <div class="row"><span>CONTACTO</span><span>WhatsApp (+598) 99 987 300</span></div>
+      <div class="stamp">RECIBIDO · PENDIENTE DE REUNIÓN</div>
+    </div>
+  </section>
+
+  <section id="servicios" class="grid">
+    <div class="cell"><div class="n">01</div><h3>Sistemas de gestión</h3><p>Implementación y mejora de sistemas alineados a estándares internacionales.</p></div>
+    <div class="cell"><div class="n">02</div><h3>Cadena de suministro</h3><p>Auditorías y gestión de riesgos en la cadena de suministro.</p></div>
+    <div class="cell"><div class="n">03</div><h3>Certificación</h3><p>Acompañamiento en procesos de certificación.</p></div>
+    <div class="cell"><div class="n">04</div><h3>Gestión del talento</h3><p>Selección de personal y evaluación por competencias.</p></div>
+  </section>
+
+  <footer>SM Consultores · Montevideo, Uruguay · Propuesta de diseño 1 de 3</footer>
+</div>
+</body>
+</html>
