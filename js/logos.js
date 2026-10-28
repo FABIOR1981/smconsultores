@@ -32,7 +32,7 @@ const clientesComex = [
     },
     {
         nombre: "Nautilus Yachting Club",
-        logo: "7_logo-nautilus-yacht-club.svg",
+        logo: "7_logo-nautilus-yacht-club.png",
         url: "https://www.nyc.com.uy/"
     }
 ];
