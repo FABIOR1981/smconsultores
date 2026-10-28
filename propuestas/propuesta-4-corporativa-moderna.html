@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta 4 · Corporativa moderna · SM Consultores</title>
+<style>
+  :root {
+    --ink: #0b1f33;
+    --navy: #0f3557;
+    --paper: #ffffff;
+    --soft: #f2f5f8;
+    --muted: #4a5b6d;
+    --line: #d9e1e9;
+    --accent: #0a7f8c;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Helvetica Neue", Arial, sans-serif; color: var(--ink); background: var(--paper); line-height: 1.6; }
+  a { color: inherit; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+  header.top { position: sticky; top: 0; background: #fff; border-bottom: 1px solid var(--line); z-index: 10; }
+  header.top .wrap { display: flex; justify-content: space-between; align-items: center; height: 72px; }
+  .brand { font-weight: 800; font-size: 18px; letter-spacing: .01em; color: var(--navy); text-decoration: none; }
+  .brand span { font-weight: 400; color: var(--muted); }
+  nav a { text-decoration: none; color: var(--ink); font-size: 15px; margin-left: 28px; }
+  .btn { display: inline-block; background: var(--navy); color: #fff; text-decoration: none; padding: 14px 24px; font-weight: 600; font-size: 15px; border-radius: 4px; }
+  .btn.light { background: transparent; color: var(--navy); border: 1px solid var(--navy); margin-left: 12px; }
+
+  .hero { padding: 96px 0 80px; }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center; }
+  h1 { font-size: 54px; line-height: 1.08; letter-spacing: -.02em; color: var(--navy); margin: 0 0 24px; font-weight: 800; }
+  .hero p.lead { font-size: 19px; color: var(--muted); margin: 0 0 36px; max-width: 540px; }
+  .hero-media { position: relative; }
+  .hero-media img { width: 100%; height: 480px; object-fit: cover; border-radius: 6px; display: block; }
+  .hero-media .float { position: absolute; left: -32px; bottom: 32px; background: #fff; padding: 20px 24px; border-radius: 6px; box-shadow: 0 10px 30px rgba(11,31,51,.12); max-width: 300px; }
+  .hero-media .float strong { display: block; color: var(--navy); font-size: 15px; margin-bottom: 4px; }
+  .hero-media .float span { color: var(--muted); font-size: 14px; }
+
+  .services { background: var(--soft); padding: 96px 0; }
+  .section-head { max-width: 640px; margin-bottom: 56px; }
+  h2 { font-size: 36px; line-height: 1.15; color: var(--navy); margin: 0 0 16px; font-weight: 800; letter-spacing: -.01em; }
+  .section-head p { color: var(--muted); font-size: 17px; margin: 0; }
+  .svc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .svc { background: #fff; padding: 32px 26px; border-radius: 6px; border: 1px solid var(--line); }
+  .svc .num { font-size: 14px; font-weight: 700; color: var(--accent); margin-bottom: 40px; display: block; }
+  .svc h3 { font-size: 20px; color: var(--navy); margin: 0 0 12px; line-height: 1.25; }
+  .svc p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  .clients { padding: 96px 0; }
+  .logos { display: grid; grid-template-columns: repeat(7, 1fr); gap: 32px; align-items: center; margin-top: 48px; }
+  .logos img { width: 100%; height: 72px; object-fit: contain; filter: grayscale(100%); opacity: .8; }
+
+  .cta { background: var(--navy); color: #fff; padding: 88px 0; }
+  .cta-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center; }
+  .cta h2 { color: #fff; }
+  .cta p { color: #c9d6e2; font-size: 17px; margin: 0; }
+  .cta .btn { background: #fff; color: var(--navy); }
+  .cta .info { font-size: 15px; color: #c9d6e2; border-left: 1px solid #2a4f72; padding-left: 32px; }
+  .cta .info strong { color: #fff; display: block; margin-bottom: 4px; }
+  .cta .info div { margin-bottom: 16px; }
+
+  footer { padding: 32px 0; font-size: 14px; color: var(--muted); }
+  footer .wrap { display: flex; justify-content: space-between; }
+
+  @media (max-width: 900px) {
+    .hero-grid, .cta-grid { grid-template-columns: 1fr; }
+    .svc-grid { grid-template-columns: 1fr 1fr; }
+    .logos { grid-template-columns: repeat(3, 1fr); }
+    h1 { font-size: 40px; }
+    nav { display: none; }
+    .hero-media .float { left: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#">SM <span>Consultores</span></a>
+    <nav>
+      <a href="#servicios">Servicios</a>
+      <a href="#clientes">Clientes</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Gestión, cumplimiento y mejora continua para tu cadena de suministro</h1>
+        <p class="lead">Estrategia, sistemas de gestión y desarrollo organizacional para agentes de carga, importadores y empresas que buscan una consultora con experiencia real en comercio exterior.</p>
+        <a class="btn" href="https://wa.me/59899987300">Pedir reunión de diagnóstico</a><a class="btn light" href="#servicios">Ver servicios</a>
+      </div>
+      <div class="hero-media">
+        <img src="../img/logistica-comex.jpg" alt="Logística y comercio exterior">
+        <div class="float">
+          <strong>Diagnóstico inicial</strong>
+          <span>Sin compromiso. Presencial o remoto.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios" class="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Servicios para ordenar tu gestión</h2>
+        <p>Acompañamos la implementación, la auditoría y la certificación con foco en riesgos y cumplimiento.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc"><span class="num">01</span><h3>Sistemas de gestión</h3><p>Implementación y mejora alineadas a estándares internacionales.</p></div>
+        <div class="svc"><span class="num">02</span><h3>Cadena de suministro</h3><p>Auditorías y gestión de riesgos en toda la cadena.</p></div>
+        <div class="svc"><span class="num">03</span><h3>Certificación</h3><p>Acompañamiento en procesos de certificación.</p></div>
+        <div class="svc"><span class="num">04</span><h3>Gestión del talento</h3><p>Selección de personal y evaluación por competencias.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="clientes" class="clients">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Empresas que confían en nosotros</h2>
+        <p>Trabajamos con organizaciones de logística, comercio y servicios.</p>
+      </div>
+      <div class="logos">
+        <img src="../img/logos_clientes/1_logo-aramaycia.png" alt="Aramaycia">
+        <img src="../img/logos_clientes/2_logo-ibarra.png" alt="Ibarra Comex">
+        <img src="../img/logos_clientes/3_logo-santarosa.png" alt="Santa Rosa">
+        <img src="../img/logos_clientes/4_logo-liguori.png" alt="Liguori Dendi">
+        <img src="../img/logos_clientes/5_logo-ace.png" alt="ACE">
+        <img src="../img/logos_clientes/6_logo-marley-coffee.png" alt="Marley Coffee">
+        <img src="../img/logos_clientes/7_logo-nautilus-yacht-club.png" alt="Nautilus Yachting Club">
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="cta">
+    <div class="wrap cta-grid">
+      <div>
+        <h2>Transformemos desafíos en oportunidades de mejora</h2>
+        <p>Contanos tu situación y coordinamos una reunión de diagnóstico.</p>
+        <div style="margin-top:32px"><a class="btn" href="https://wa.me/59899987300">Escribir por WhatsApp</a></div>
+      </div>
+      <div class="info">
+        <div><strong>Teléfono / WhatsApp</strong>(+598) 99 987 300</div>
+        <div><strong>Correo</strong>shalonmorales@gmail.com</div>
+        <div><strong>Modalidad</strong>Presencial y remota · Montevideo, Uruguay</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 SM Consultores. Todos los derechos reservados.</span>
+    <span>Propuesta 4 de 4</span>
+  </div>
+</footer>
+
+</body>
+</html>
