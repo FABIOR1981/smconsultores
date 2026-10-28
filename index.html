@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>SM Consultores · Versiones de la web</title>
+    <style>
+        :root {
+            --bg: #eeeeea;
+            --card: #ffffff;
+            --ink: #1b1b1b;
+            --muted: #6b6b6b;
+            --line: #d9d9d2;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+        }
+        header {
+            padding: 2.5rem clamp(1.25rem, 4vw, 3rem) 1rem;
+        }
+        header h1 {
+            margin: 0 0 0.4rem;
+            font-size: clamp(1.5rem, 1.1rem + 1.2vw, 2.1rem);
+            font-weight: 700;
+        }
+        header p {
+            margin: 0;
+            color: var(--muted);
+        }
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 1.5rem clamp(1.25rem, 4vw, 3rem) 3rem;
+        }
+        .card {
+            display: flex;
+            flex-direction: column;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            overflow: hidden;
+            text-decoration: none;
+            color: var(--ink);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card:hover,
+        .card:focus-visible {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+            outline: none;
+        }
+        .card:focus-visible {
+            box-shadow: 0 0 0 3px #7aa7ff;
+        }
+        .thumb {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            background: #f4f4f4;
+            border-bottom: 1px solid var(--line);
+        }
+        .thumb iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1280px;
+            height: 800px;
+            border: 0;
+            transform-origin: 0 0;
+            pointer-events: none;
+        }
+        .info {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+            padding: 1rem 1.2rem;
+        }
+        .info strong {
+            font-size: 1.05rem;
+        }
+        .info span {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+        .info .go {
+            color: var(--ink);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Versiones de la web · SM Consultores</h1>
+        <p>Hacé clic en una miniatura para abrir esa versión.</p>
+    </header>
+
+    <main>
+        <a class="card" href="index1.html">
+            <div class="thumb"><iframe src="index1.html" title="Versión 1: verde" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></div>
+            <div class="info"><strong>Versión 1</strong><span>Verde profundo</span><span class="go">Abrir →</span></div>
+        </a>
+
+        <a class="card" href="index2.html">
+            <div class="thumb"><iframe src="index2.html" title="Versión 2: azul marino" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></div>
+            <div class="info"><strong>Versión 2</strong><span>Azul marino</span><span class="go">Abrir →</span></div>
+        </a>
+
+        <a class="card" href="index3.html">
+            <div class="thumb"><iframe src="index3.html" title="Versión 3: editorial" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></div>
+            <div class="info"><strong>Versión 3</strong><span>Editorial</span><span class="go">Abrir →</span></div>
+        </a>
+    </main>
+
+    <script>
+        // Escala cada página de 1280px para que quepa en la miniatura.
+        const ANCHO_PAGINA = 1280;
+        const ajustar = () => {
+            document.querySelectorAll('.thumb').forEach((thumb) => {
+                const iframe = thumb.querySelector('iframe');
+                iframe.style.transform = `scale(${thumb.clientWidth / ANCHO_PAGINA})`;
+            });
+        };
+        window.addEventListener('resize', ajustar);
+        window.addEventListener('load', ajustar);
+        ajustar();
+    </script>
+</body>
+</html>
