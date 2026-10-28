@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SM Consultores · Propuesta 9 · Expediente</title>
+<meta name="description" content="Sistemas de gestión, OEC, comercio exterior y gestión de personas. SM Consultores, Montevideo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+  /* Concepto: el expediente. Cada servicio es un expediente con su propio número de
+     caso (en el sentido de documento), no una tarjeta. Bordó como bloque, blanco como papel,
+     dorado sólo en filetes finos. */
+  :root {
+    --bordo: #5C1F2E;
+    --bordo-deep: #3E1420;
+    --paper: #FFFFFF;
+    --ink: #151117;
+    --soft: #5B5257;
+    --rule: #D9D3CF;
+    --gold: #B8862B;
+    --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --text: "Source Serif 4", Georgia, serif;
+  }
+  * { box-sizing: border-box; }
+  ::selection { background: var(--gold); color: var(--ink); }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--text); font-size: 18px; line-height: 1.65; }
+  a { color: inherit; text-underline-offset: 4px; }
+  img { display: block; max-width: 100%; }
+
+  /* Navegación: columna fija a la izquierda en escritorio */
+  .shell { display: grid; grid-template-columns: 300px 1fr; min-height: 100vh; }
+  aside { position: sticky; top: 0; height: 100vh; padding: 48px 40px; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid var(--rule); }
+  aside .brand { font-family: var(--display); font-weight: 800; font-stretch: 125%; font-size: 20px; letter-spacing: -.01em; text-decoration: none; line-height: 1.1; }
+  aside nav { display: grid; gap: 14px; font-family: var(--display); font-size: 15px; font-weight: 500; }
+  aside nav a { text-decoration: none; }
+  aside nav a:hover { color: var(--bordo); }
+  aside .wa { font-family: var(--display); font-weight: 600; font-size: 15px; color: var(--bordo); text-decoration: none; border-bottom: 2px solid var(--gold); align-self: start; padding-bottom: 2px; }
+  main { min-width: 0; }
+  section { padding: 120px 96px; }
+
+  /* Portada: bloque bordó y titular grande */
+  .cover { background: var(--bordo); color: #fff; padding: 140px 96px 120px; }
+  .cover h1 { font-family: var(--display); font-weight: 800; font-stretch: 125%; font-size: clamp(48px, 6.6vw, 104px); line-height: .98; letter-spacing: -.035em; margin: 0 0 56px; max-width: 14ch; }
+  .cover p { font-size: 22px; max-width: 46ch; margin: 0 0 48px; opacity: .95; }
+  .cover .action { display: inline-block; background: #fff; color: var(--bordo); padding: 18px 28px; font-family: var(--display); font-weight: 700; font-size: 16px; text-decoration: none; }
+  .cover .action:hover { background: var(--gold); color: var(--ink); }
+
+  /* Expedientes: cada servicio es una hoja con encabezado de documento */
+  .file { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; padding: 96px 0; border-top: 2px solid var(--ink); }
+  .file:first-of-type { border-top-color: var(--bordo); }
+  .file h2 { font-family: var(--display); font-weight: 800; font-stretch: 112%; font-size: clamp(32px, 3.6vw, 52px); line-height: 1.05; letter-spacing: -.02em; margin: 0 0 32px; }
+  .file .ref { font-family: var(--display); font-size: 14px; color: var(--soft); margin: 0 0 20px; font-weight: 500; }
+  .file ol, .file ul { list-style: none; margin: 0; padding: 0; }
+  .file li { padding: 18px 0; border-top: 1px solid var(--rule); font-size: 17px; line-height: 1.5; display: grid; grid-template-columns: 1fr; }
+  .file li:last-child { border-bottom: 1px solid var(--rule); }
+  .file img { width: 100%; height: 100%; min-height: 420px; object-fit: cover; }
+
+  /* Clientes: libro mayor */
+  .ledger h2 { font-family: var(--display); font-weight: 800; font-stretch: 112%; font-size: clamp(32px, 3.6vw, 52px); letter-spacing: -.02em; margin: 0 0 56px; line-height: 1.05; }
+  .ledger-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--rule); }
+  .ledger-grid > * { border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); min-height: 140px; display: flex; align-items: center; justify-content: center; padding: 28px; }
+  .ledger-grid img { max-height: 70px; max-width: 100%; object-fit: contain; }
+  .ledger-grid a:hover { background: #FAF7F7; }
+
+  /* Cierre: texto grande y un solo camino */
+  .close { padding: 140px 96px; }
+  .close h2 { font-family: var(--display); font-weight: 800; font-stretch: 125%; font-size: clamp(44px, 6vw, 96px); line-height: 1; letter-spacing: -.035em; margin: 0 0 48px; max-width: 16ch; color: var(--bordo); }
+  .close p { font-size: 20px; color: var(--soft); max-width: 52ch; margin: 0 0 48px; }
+  .close .row { display: flex; gap: 40px; flex-wrap: wrap; align-items: center; }
+  .close .action { background: var(--bordo); color: #fff; padding: 20px 32px; font-family: var(--display); font-weight: 700; font-size: 17px; text-decoration: none; }
+  .close .action:hover { background: var(--bordo-deep); }
+  .close .meta { font-family: var(--display); font-size: 15px; color: var(--soft); line-height: 1.8; }
+  .close .meta a { color: var(--ink); }
+
+  footer { padding: 32px 96px; border-top: 1px solid var(--rule); font-family: var(--display); font-size: 14px; color: var(--soft); }
+
+  @media (max-width: 1000px) {
+    .shell { grid-template-columns: 1fr; }
+    aside { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--rule); padding: 24px; flex-direction: row; flex-wrap: wrap; gap: 16px; }
+    aside nav { grid-template-columns: repeat(2, auto); }
+    section, .cover, .close, footer { padding-left: 24px; padding-right: 24px; }
+    .cover { padding-top: 96px; padding-bottom: 88px; }
+    .file { grid-template-columns: 1fr; gap: 40px; padding: 72px 0; }
+    .file img { min-height: 280px; }
+    .ledger-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <aside>
+    <a class="brand" href="#inicio">SM<br>Consultores</a>
+    <nav>
+      <a href="#servicios">Servicios</a>
+      <a href="#perfil">Perfil</a>
+      <a href="#clientes">Clientes</a>
+    </nav>
+    <a class="wa" href="https://wa.me/59899987300">WhatsApp (+598) 99 987 300</a>
+  </aside>
+
+  <main>
+    <div class="cover" id="inicio">
+      <h1>Ordenamos su gestión y su cadena de suministro.</h1>
+      <p>Sistemas de gestión, auditorías OEC y acompañamiento de personas para agentes de carga, importadores, despachantes de aduana y operadores logísticos.</p>
+      <a class="action" href="https://wa.me/59899987300">Pedir reunión de diagnóstico</a>
+    </div>
+
+    <section id="servicios" style="padding-bottom:0">
+      <div class="file">
+        <div>
+          <h2>Diagnóstico, implementación y certificación</h2>
+          <ul>
+            <li>Análisis de brechas frente a ISO y OEC.</li>
+            <li>Implementación y fortalecimiento de sistemas de gestión.</li>
+            <li>Gestión de riesgos en la cadena de suministro.</li>
+            <li>Auditorías internas, externas y de segunda parte.</li>
+            <li>Acompañamiento hasta la certificación.</li>
+          </ul>
+        </div>
+        <img src="../img/servicio-sistemas.jpg" alt="Implementación de sistemas de gestión">
+      </div>
+
+      <div class="file">
+        <img src="../img/servicio-talento.jpg" alt="Gestión de personas" style="order:0">
+        <div>
+          <h2>Selección, clima y liderazgo</h2>
+          <ul>
+            <li>Selección de personal y evaluación por competencias.</li>
+            <li>Diagnóstico de clima laboral y desempeño.</li>
+            <li>Desarrollo de líderes y equipos.</li>
+            <li>Gestión del cambio y transformación.</li>
+            <li>Mediación y resolución de conflictos.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="file">
+        <div>
+          <h2>Capacitación y comunicación interna</h2>
+          <ul>
+            <li>Capacitación y formación a medida.</li>
+            <li>Desarrollo de competencias y cultura preventiva.</li>
+            <li>Comunicación organizacional y cultura corporativa.</li>
+            <li>Estrategias de comunicación interna.</li>
+          </ul>
+        </div>
+        <img src="../img/servicio-capacitacion.jpg" alt="Desarrollo de equipos">
+      </div>
+    </section>
+
+    <section id="perfil" style="background:#FAF7F7">
+      <div class="file" style="border-top-color:var(--ink);padding-top:80px">
+        <img src="../img/perfil-shalon.jpg" alt="Shalon Morales, consultora" style="min-height:560px;object-position:top">
+        <div>
+          <h2>Shalon Morales</h2>
+          <ul>
+            <li>Licenciada en Ciencias de la Comunicación, con posgrado en Comunicación Organizacional.</li>
+            <li>Auditora de sistemas certificada por AENOR.</li>
+            <li>Especialista en sistemas de gestión integrados, normas ISO y el Programa OEC.</li>
+            <li>Experiencia en comercio exterior, logística y cadena de suministro.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="clientes" class="ledger">
+      <h2>Clientes de comercio exterior</h2>
+      <div class="ledger-grid">
+        <a href="https://www.aramaycia.com/" target="_blank" rel="noopener noreferrer"><img src="../img/logos_clientes/1_logo-aramaycia.png" alt="Aramaycia"></a>
+        <a href="https://www.ibarra.com.uy/" target="_blank" rel="noopener noreferrer"><img src="../img/logos_clientes/2_logo-ibarra.png" alt="Ibarra Comex"></a>
+        <span><img src="../img/logos_clientes/3_logo-santarosa.png" alt="Santa Rosa"></span>
+        <a href="https://ld.com.uy/" target="_blank" rel="noopener noreferrer"><img src="../img/logos_clientes/4_logo-liguori.png" alt="Liguori Dendi"></a>
+        <a href="https://coopelectoral.com.uy/" target="_blank" rel="noopener noreferrer"><img src="../img/logos_clientes/5_logo-ace.png" alt="ACE"></a>
+        <a href="https://marleycoffee.com.uy/" target="_blank" rel="noopener noreferrer"><img src="../img/logos_clientes/6_logo-marley-coffee.png" alt="Marley Coffee"></a>
+        <a href="https://www.nyc.com.uy/" target="_blank" rel="noopener noreferrer"><img src="../img/logos_clientes/7_logo-nautilus-yacht-club.png" alt="Nautilus Yachting Club"></a>
+      </div>
+    </section>
+
+    <section class="close" id="contacto">
+      <h2>Transformemos desafíos en oportunidades de mejora.</h2>
+      <p>Cuéntenos su situación y coordinamos una reunión de diagnóstico, presencial o remota.</p>
+      <div class="row">
+        <a class="action" href="https://wa.me/59899987300">Escribir por WhatsApp</a>
+        <div class="meta">
+          <a href="mailto:shalonmorales@gmail.com">shalonmorales@gmail.com</a><br>
+          <a href="https://www.linkedin.com/in/shalonmorales/" target="_blank" rel="noopener noreferrer">LinkedIn · Shalon Morales</a><br>
+          Presencial y remota · Montevideo, Uruguay
+        </div>
+      </div>
+    </section>
+
+    <footer>© 2026 SM Consultores. Todos los derechos reservados.</footer>
+  </main>
+</div>
+
+</body>
+</html>
