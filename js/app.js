@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const marcarActivo = (id) => {
         navItems.forEach(item => {
             const activo = item.getAttribute('href') === `#${id}`;
-            item.classList.toggle('text-bordo', activo);
+            item.classList.toggle('text-gold-text', activo);
             item.classList.toggle('font-semibold', activo);
             item.classList.toggle('text-ink/70', !activo);
         });

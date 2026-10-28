@@ -19,7 +19,7 @@ function cargarLogosClientes() {
         return obtenerOrden(a.logo) - obtenerOrden(b.logo);
     });
 
-    const estiloTarjeta = 'flex h-28 items-center justify-center rounded-lg border border-black/5 bg-white p-6 transition hover:border-bordo/40';
+    const estiloTarjeta = 'flex h-28 items-center justify-center rounded-lg border border-black/5 bg-white p-6 transition hover:border-gold';
     const estiloLogo = 'max-h-14 w-auto max-w-full object-contain';
 
     grid.innerHTML = clientesOrdenados.map(cliente => {
