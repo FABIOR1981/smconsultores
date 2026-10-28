@@ -13,6 +13,8 @@
     --muted: #4a5b6d;
     --line: #d9e1e9;
     --accent: #0a7f8c;
+    --signal: #f2a900;
+    --sky: #dff3f5;
   }
   * { box-sizing: border-box; }
   body { margin: 0; font-family: "Helvetica Neue", Arial, sans-serif; color: var(--ink); background: var(--paper); line-height: 1.6; }
@@ -27,7 +29,9 @@
   .btn { display: inline-block; background: var(--navy); color: #fff; text-decoration: none; padding: 14px 24px; font-weight: 600; font-size: 15px; border-radius: 4px; }
   .btn.light { background: transparent; color: var(--navy); border: 1px solid var(--navy); margin-left: 12px; }
 
-  .hero { padding: 96px 0 80px; }
+  .hero { padding: 96px 0 80px; position: relative; }
+  .hero::before { content: ""; position: absolute; right: 0; top: 0; width: 46%; height: 100%; background: var(--sky); z-index: -1; }
+  .hl { background: linear-gradient(transparent 62%, var(--signal) 62%); }
   .hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center; }
   h1 { font-size: 54px; line-height: 1.2; letter-spacing: -.02em; color: var(--navy); margin: 0 0 24px; font-weight: 800; }
   .hero p.lead { font-size: 19px; color: var(--muted); margin: 0 0 36px; max-width: 540px; }
@@ -37,10 +41,10 @@
   .hero-media .float strong { display: block; color: var(--navy); font-size: 15px; margin-bottom: 4px; }
   .hero-media .float span { color: var(--muted); font-size: 14px; }
 
-  .stripe { background: var(--navy); color: #fff; padding: 28px 0; }
+  .stripe { background: var(--navy); color: #fff; padding: 28px 0; border-top: 6px solid var(--signal); }
   .stripe ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px 32px; font-size: 15px; }
   .stripe li { display: flex; align-items: center; gap: 10px; }
-  .stripe li::before { content: ""; width: 6px; height: 6px; background: #5fd0dc; border-radius: 50%; }
+  .stripe li::before { content: ""; width: 8px; height: 8px; background: var(--signal); transform: rotate(45deg); }
 
   .profile { padding: 96px 0; }
   .profile-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 64px; align-items: center; }
@@ -59,7 +63,7 @@
   .svc { background: #fff; border-radius: 6px; border: 1px solid var(--line); overflow: hidden; display: flex; flex-direction: column; }
   .svc img { width: 100%; height: 180px; object-fit: cover; display: block; }
   .svc .body { padding: 28px 26px 32px; }
-  .svc .num { font-size: 13px; font-weight: 700; color: var(--accent); display: block; margin-bottom: 8px; }
+  .svc .num { font-size: 56px; font-weight: 800; color: var(--sky); line-height: 1; display: block; margin-bottom: 12px; -webkit-text-stroke: 1px var(--accent); }
   .svc h3 { font-size: 20px; color: var(--navy); margin: 0 0 16px; line-height: 1.25; }
   .svc ul { margin: 0; padding: 0; list-style: none; }
   .svc li { font-size: 15px; color: var(--muted); padding: 8px 0 8px 22px; position: relative; border-top: 1px solid #edf1f5; }
@@ -69,9 +73,10 @@
   .clients { padding: 96px 0; }
   .logos { display: grid; grid-template-columns: repeat(7, 1fr); gap: 32px; align-items: center; margin-top: 48px; }
   .logos a, .logos span { display: block; }
-  .logos img { width: 100%; height: 72px; object-fit: contain; filter: grayscale(100%); opacity: .8; }
+  .logos a, .logos span { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 18px; }
+  .logos img { width: 100%; height: 56px; object-fit: contain; filter: grayscale(100%); opacity: .85; }
 
-  .cta { background: var(--navy); color: #fff; padding: 88px 0; }
+  .cta { background: var(--navy); color: #fff; padding: 120px 0 88px; clip-path: polygon(0 40px, 100% 0, 100% 100%, 0 100%); margin-top: -40px; }
   .cta-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center; }
   .cta h2 { color: #fff; }
   .cta p { color: #c9d6e2; font-size: 17px; margin: 0; }
@@ -112,7 +117,7 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <h1>Gestión, cumplimiento y mejora continua para tu cadena de suministro</h1>
+        <h1>Gestión, cumplimiento y <span class="hl">mejora continua</span> para tu cadena de suministro</h1>
         <p class="lead">Estrategia, sistemas de gestión y desarrollo organizacional para agentes de carga, importadores, despachantes de aduana y operadores logísticos.</p>
         <a class="btn" href="https://wa.me/59899987300">Pedir reunión de diagnóstico</a><a class="btn light" href="#servicios">Ver servicios</a>
       </div>
