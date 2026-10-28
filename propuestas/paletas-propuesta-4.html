@@ -1,30 +1,30 @@
 <!DOCTYPE html>
-<html lang="es" data-palette="esmeralda">
+<html lang="es" data-palette="verde">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Paletas · SM Consultores · Propuesta 4</title>
 <style>
   /* Cada paleta define los mismos tokens. Cambiar data-palette en <html> cambia toda la web. */
-  :root, [data-palette="esmeralda"] {
-    --primary: #0f6b4f; --primary-deep: #0a4a37; --accent: #e0a526; --tint: #e7f4ee;
-    --ink: #0f2a20; --muted: #4f625a; --line: #d3e3dc; --soft: #f4f9f6;
+  :root, [data-palette="verde"] {
+    --primary: #1b8a80; --primary-deep: #12635c; --accent: #e0a526; --tint: #e4f5f2;
+    --ink: #0e2f2b; --muted: #4e6b66; --line: #cfe6e1; --soft: #f4fbf9; --on-primary: #ffffff; --on-deep: #ffffff;
   }
-  [data-palette="bordo"] {
-    --primary: #7a1f3d; --primary-deep: #55142a; --accent: #d9a441; --tint: #f8ecf0;
-    --ink: #2a0f1a; --muted: #6b4f5a; --line: #ecd7de; --soft: #fbf5f7;
+  [data-palette="malva"] {
+    --primary: #b9a6d9; --primary-deep: #6f5d96; --accent: #f0b9a3; --tint: #f4effa;
+    --ink: #2e2442; --muted: #66597d; --line: #e2d8ef; --soft: #faf7fd; --on-primary: #2e2442; --on-deep: #ffffff;
   }
-  [data-palette="teal"] {
-    --primary: #0b7a75; --primary-deep: #075a56; --accent: #ff7a59; --tint: #e3f6f4;
-    --ink: #0b2e2d; --muted: #4d6967; --line: #cbe6e3; --soft: #f3fbfa;
+  [data-palette="coral"] {
+    --primary: #f5bfae; --primary-deep: #a95f4c; --accent: #a7d9c6; --tint: #fdf2ee;
+    --ink: #3a2a33; --muted: #6e5a62; --line: #f3dcd3; --soft: #fdf8f5; --on-primary: #3a2a33; --on-deep: #ffffff;
   }
-  [data-palette="indigo"] {
-    --primary: #3d2e8c; --primary-deep: #2b2068; --accent: #f5b53f; --tint: #ece9fb;
-    --ink: #1c1545; --muted: #5a5680; --line: #dcd7f3; --soft: #f7f6fd;
+  [data-palette="salvia"] {
+    --primary: #b5d3ae; --primary-deep: #4f7a4a; --accent: #f4c9a4; --tint: #f1f7ef;
+    --ink: #22332a; --muted: #56695d; --line: #dbe8d6; --soft: #f7fbf5; --on-primary: #22332a; --on-deep: #ffffff;
   }
-  [data-palette="cobre"] {
-    --primary: #2f5d3a; --primary-deep: #1f3f27; --accent: #c46b2e; --tint: #e9f1ea;
-    --ink: #142a19; --muted: #56695a; --line: #d4e2d6; --soft: #f5f9f5;
+  [data-palette="rosa"] {
+    --primary: #f0c3cb; --primary-deep: #9c5a68; --accent: #f7dc9a; --tint: #fbf1f3;
+    --ink: #3b2630; --muted: #6c5860; --line: #f0dce1; --soft: #fcf7f8; --on-primary: #3b2630; --on-deep: #ffffff;
   }
 
   * { box-sizing: border-box; }
@@ -40,25 +40,20 @@
   .switcher button { border: 2px solid transparent; background: none; padding: 10px 16px; border-radius: 999px; font: inherit; font-size: 14px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--ink); }
   .switcher button[aria-pressed="true"] { border-color: var(--ink); }
   .swatch { width: 18px; height: 18px; border-radius: 50%; display: inline-block; }
-  .sw-esmeralda { background: linear-gradient(90deg,#0f6b4f 50%,#e0a526 50%); }
-  .sw-bordo { background: linear-gradient(90deg,#7a1f3d 50%,#d9a441 50%); }
-  .sw-teal { background: linear-gradient(90deg,#0b7a75 50%,#ff7a59 50%); }
-  .sw-indigo { background: linear-gradient(90deg,#3d2e8c 50%,#f5b53f 50%); }
-  .sw-cobre { background: linear-gradient(90deg,#2f5d3a 50%,#c46b2e 50%); }
 
   header.top { display: flex; justify-content: space-between; align-items: center; height: 84px; }
   header.top img { height: 60px; display: block; }
   nav a { text-decoration: none; font-size: 15px; margin-left: 26px; color: var(--ink); }
-  .btn { display: inline-block; background: var(--primary); color: #fff; text-decoration: none; padding: 14px 24px; font-weight: 700; font-size: 15px; border-radius: 6px; }
+  .btn { display: inline-block; background: var(--primary); color: var(--on-primary); text-decoration: none; padding: 14px 24px; font-weight: 700; font-size: 15px; border-radius: 6px; }
   .btn.light { background: transparent; color: var(--primary); border: 2px solid var(--primary); margin-left: 12px; }
 
-  .hero { background: var(--primary); color: #fff; padding: 96px 0 104px; position: relative; overflow: hidden; }
+  .hero { background: var(--primary); color: var(--on-primary); padding: 96px 0 104px; position: relative; overflow: hidden; }
   .hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center; }
   h1 { font-family: "Sora", "Segoe UI", sans-serif; font-size: 52px; line-height: 1.15; letter-spacing: -.02em; margin: 0 0 22px; font-weight: 700; }
-  .hl { background: linear-gradient(transparent 62%, var(--accent) 62%); color: #fff; }
+  .hl { background: linear-gradient(transparent 62%, var(--accent) 62%); color: var(--on-primary); }
   .hero p.lead { font-size: 19px; opacity: .92; margin: 0 0 34px; max-width: 540px; }
   .hero .btn { background: var(--accent); color: var(--ink); }
-  .hero .btn.light { color: #fff; border-color: #fff; }
+  .hero .btn.light { color: var(--on-primary); border-color: var(--on-primary); }
   .hero-media { position: relative; }
   .hero-media img { width: 100%; height: 460px; object-fit: cover; border-radius: 10px; display: block; }
   .hero-media .float { position: absolute; left: -28px; bottom: 28px; background: #fff; color: var(--ink); padding: 18px 22px; border-radius: 10px; box-shadow: 0 12px 30px rgba(0,0,0,.18); max-width: 280px; }
@@ -74,7 +69,7 @@
   .profile-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 64px; align-items: center; }
   .profile-grid img { width: 100%; height: 520px; object-fit: cover; object-position: top; border-radius: 10px; display: block; }
   h2 { font-family: "Sora", "Segoe UI", sans-serif; font-size: 36px; line-height: 1.25; color: var(--primary-deep); margin: 0 0 22px; font-weight: 700; letter-spacing: -.01em; }
-  .quote { font-size: 20px; color: var(--primary); font-weight: 700; border-left: 4px solid var(--accent); padding-left: 18px; margin: 0 0 26px; }
+  .quote { font-size: 20px; color: var(--primary-deep); font-weight: 700; border-left: 4px solid var(--accent); padding-left: 18px; margin: 0 0 26px; }
   .profile p { color: var(--muted); font-size: 16px; margin: 0 0 16px; }
   .creds { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; margin-top: 26px; font-size: 15px; }
   .creds div { border-top: 2px solid var(--primary); padding-top: 10px; color: var(--ink); font-weight: 600; }
@@ -98,13 +93,13 @@
   .logos a, .logos span { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: block; }
   .logos img { width: 100%; height: 56px; object-fit: contain; }
 
-  .cta { background: var(--primary-deep); color: #fff; padding: 110px 0 92px; clip-path: polygon(0 40px, 100% 0, 100% 100%, 0 100%); margin-top: -40px; }
+  .cta { background: var(--primary-deep); color: var(--on-deep); padding: 110px 0 92px; clip-path: polygon(0 40px, 100% 0, 100% 100%, 0 100%); margin-top: -40px; }
   .cta-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center; }
-  .cta h2 { color: #fff; }
+  .cta h2 { color: var(--on-deep); }
   .cta p { opacity: .9; font-size: 17px; margin: 0; }
   .cta .btn { background: var(--accent); color: var(--ink); }
   .cta .info { font-size: 15px; border-left: 2px solid var(--accent); padding-left: 28px; }
-  .cta .info strong { display: block; color: #fff; margin-bottom: 2px; }
+  .cta .info strong { display: block; color: var(--on-deep); margin-bottom: 2px; }
   .cta .info div { margin-bottom: 16px; }
 
   footer { padding: 30px 0; font-size: 14px; color: var(--muted); }
@@ -127,11 +122,11 @@
   <div class="wrap">
     <span class="label">Paleta de colores</span>
     <div class="opts" role="group" aria-label="Paletas">
-      <button type="button" data-set="esmeralda" aria-pressed="true"><span class="swatch sw-esmeralda"></span>Esmeralda y dorado</button>
-      <button type="button" data-set="bordo" aria-pressed="false"><span class="swatch sw-bordo"></span>Bordó y oro</button>
-      <button type="button" data-set="teal" aria-pressed="false"><span class="swatch sw-teal"></span>Turquesa y coral</button>
-      <button type="button" data-set="indigo" aria-pressed="false"><span class="swatch sw-indigo"></span>Índigo y ámbar</button>
-      <button type="button" data-set="cobre" aria-pressed="false"><span class="swatch sw-cobre"></span>Bosque y cobre</button>
+      <button type="button" data-set="verde" aria-pressed="true"><span class="swatch" style="background:linear-gradient(90deg,#1b8a80 50%,#e0a526 50%)"></span>Verde agua y dorado</button>
+      <button type="button" data-set="malva" aria-pressed="false"><span class="swatch" style="background:linear-gradient(90deg,#b9a6d9 50%,#f0b9a3 50%)"></span>Malva y durazno</button>
+      <button type="button" data-set="coral" aria-pressed="false"><span class="swatch" style="background:linear-gradient(90deg,#f5bfae 50%,#a7d9c6 50%)"></span>Coral y menta</button>
+      <button type="button" data-set="salvia" aria-pressed="false"><span class="swatch" style="background:linear-gradient(90deg,#b5d3ae 50%,#f4c9a4 50%)"></span>Salvia y durazno</button>
+      <button type="button" data-set="rosa" aria-pressed="false"><span class="swatch" style="background:linear-gradient(90deg,#f0c3cb 50%,#f7dc9a 50%)"></span>Rosa y amarillo</button>
     </div>
   </div>
 </div>
