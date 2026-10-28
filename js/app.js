@@ -2,42 +2,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     const navItems = document.querySelectorAll('.nav-item');
-    const sections = document.querySelectorAll('section');
+    const sections = document.querySelectorAll('section[id]');
 
-    // Control del Menú Hamburguesa para móviles
+    // Menú móvil: muestra u oculta la navegación y actualiza aria-expanded
     menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
+        const cerrado = navLinks.classList.toggle('hidden');
+        menuToggle.setAttribute('aria-expanded', String(!cerrado));
     });
 
-    // Cerrar menú al hacer click en un enlace (ideal para móviles)
+    // Cierra el menú móvil al elegir una sección
     navItems.forEach(item => {
         item.addEventListener('click', () => {
-            navLinks.classList.remove('active');
+            navLinks.classList.add('hidden');
+            menuToggle.setAttribute('aria-expanded', 'false');
         });
     });
 
-    // Iluminación activa del menú según la sección en pantalla (ScrollSpy)
-    const observerOptions = {
-        root: null,
-        rootMargin: '-50% 0px -50% 0px', // Detecta cuando la sección ocupa el centro de la pantalla
-        threshold: 0
+    // Resalta en el menú la sección que está en el centro de la pantalla
+    const marcarActivo = (id) => {
+        navItems.forEach(item => {
+            const activo = item.getAttribute('href') === `#${id}`;
+            item.classList.toggle('text-bordo', activo);
+            item.classList.toggle('font-semibold', activo);
+            item.classList.toggle('text-ink/70', !activo);
+        });
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                navItems.forEach(item => {
-                    item.classList.remove('active');
-                    if (item.getAttribute('href') === `#${id}`) {
-                        item.classList.add('active');
-                    }
-                });
+                marcarActivo(entry.target.getAttribute('id'));
             }
         });
-    }, observerOptions);
+    }, { root: null, rootMargin: '-50% 0px -50% 0px', threshold: 0 });
 
-    sections.forEach(section => {
-        observer.observe(section);
-    });
+    sections.forEach(section => observer.observe(section));
 });

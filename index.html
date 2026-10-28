@@ -4,190 +4,216 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SM Consultores - Sistemas de Gestión y Mejora Organizacional</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bordo: { DEFAULT: '#5C1F2E', deep: '#3E1420' },
+                        gold: { DEFAULT: '#B8862B', soft: '#E7D2A8' },
+                        ink: '#1C1C21',
+                        muted: '#55555E',
+                        mist: '#F4F4F2'
+                    },
+                    fontFamily: {
+                        display: ['Sora', 'system-ui', 'sans-serif'],
+                        body: ['Manrope', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+        ::selection { background: #B8862B; color: #1C1C21; }
+        :focus-visible { outline: 2px solid #B8862B; outline-offset: 3px; border-radius: 4px; }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            * { transition: none !important; }
+        }
+    </style>
 </head>
-<body>
+<body class="bg-white font-body text-ink antialiased">
 
-    <div class="blob-decorator blob-1"></div>
-    <div class="blob-decorator blob-2"></div>
-
-    <header class="navbar">
-        <div class="logo">SM <span>Consultores</span></div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">&#9776;</button>
-        <nav class="nav-links" id="navLinks">
-            <a href="#inicio" class="nav-item">Inicio</a>
-            <a href="#experta" class="nav-item">Especialidad</a>
-            <a href="#servicios" class="nav-item">Servicios</a>
-            <a href="#clientes" class="nav-item">Clientes</a>
-            <a href="#contacto" class="nav-item">Contacto</a>
-        </nav>
+    <header class="sticky top-0 z-40 border-b border-black/5 bg-white">
+        <div class="mx-auto flex h-20 max-w-6xl items-center justify-between px-5 md:px-8">
+            <a href="#inicio" class="font-display text-lg font-semibold tracking-tight text-ink">SM <span class="text-bordo">Consultores</span></a>
+            <button id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks" class="md:hidden -mr-2 grid size-11 place-items-center rounded-md text-ink hover:text-bordo">
+                <svg viewBox="0 0 24 24" class="size-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+            <nav id="navLinks" class="hidden absolute inset-x-0 top-full flex-col gap-1 border-b border-black/10 bg-white px-5 py-4 shadow-sm md:static md:flex md:flex-row md:items-center md:gap-8 md:border-0 md:bg-transparent md:p-0 md:shadow-none">
+                <a href="#inicio" class="nav-item rounded-md px-3 py-2 text-sm font-medium text-ink/70 hover:text-bordo md:px-0 md:py-0">Inicio</a>
+                <a href="#experta" class="nav-item rounded-md px-3 py-2 text-sm font-medium text-ink/70 hover:text-bordo md:px-0 md:py-0">Especialidad</a>
+                <a href="#servicios" class="nav-item rounded-md px-3 py-2 text-sm font-medium text-ink/70 hover:text-bordo md:px-0 md:py-0">Servicios</a>
+                <a href="#clientes" class="nav-item rounded-md px-3 py-2 text-sm font-medium text-ink/70 hover:text-bordo md:px-0 md:py-0">Clientes</a>
+                <a href="#contacto" class="nav-item rounded-md px-3 py-2 text-sm font-medium text-ink/70 hover:text-bordo md:px-0 md:py-0">Contacto</a>
+            </nav>
+        </div>
     </header>
 
-    <section id="inicio" class="hero-section">
-        <div class="hero-container">
-            <div class="hero-text-block">
-                <span class="badge">Sistemas de Gestión y Mejora Organizacional</span>
-                <h2 class="section-main-title">Estrategia, Sistema de Gestión y Desarrollo Organizacional</h2>
-                <p>Acompañamos a las Organizaciones en el fortalecimiento de su gestión, el cumplimiento normativo y la mejora continua, mediante la implementación de sistemas de gestión, auditorías en la cadena de suministro y procesos de certificación alineados a estándares internacionales. Integramos además la comunicación organizacional y la gestión de personas como factores clave para impulsar el cambio, fortalecer la cultura corporativa, desarrollar competencias y asegurar la sostenibilidad de los resultados. Complementamos este enfoque con herramientas de comunicación organizacional, gestión del cambio y desarrollo de personas, acompañando a la Dirección en la definición de estrategias, la toma de decisiones y el fortalecimiento de la cultura organizacional para alcanzar resultados sostenibles.</p>
-                <!--<p>Complemento este enfoque con herramientas de comunicación organizacional, gestión del cambio y desarrollo de personas, acompañando a la Dirección en la definición de estrategias, la toma de decisiones y el fortalecimiento de la cultura organizacional para alcanzar resultados sostenibles.</p>-->
-                <div class="hero-actions">
-                    <a href="#contacto" class="btn-primary">Contacto Directo</a>
-                    <a href="#servicios" class="btn-secondary">Nuestros Servicios</a>
+    <main>
+        <!-- Inicio -->
+        <section id="inicio" class="relative overflow-hidden">
+            <div class="mx-auto grid max-w-6xl items-center gap-14 px-5 py-16 md:grid-cols-12 md:px-8 md:py-24">
+                <div class="md:col-span-6">
+                    <span class="inline-flex items-center gap-2 rounded-full border border-gold/50 bg-gold/10 px-3.5 py-1 text-sm font-semibold text-bordo">
+                        <span class="size-1.5 rounded-full bg-gold" aria-hidden="true"></span>
+                        Sistemas de Gestión y Mejora Organizacional
+                    </span>
+                    <h1 class="mt-6 font-display text-4xl font-semibold leading-[1.12] tracking-tight text-ink md:text-6xl">Estrategia, Sistema de Gestión y Desarrollo Organizacional</h1>
+                    <p class="mt-6 max-w-prose text-lg leading-relaxed text-muted">Acompañamos a las Organizaciones en el fortalecimiento de su gestión, el cumplimiento normativo y la mejora continua, mediante la implementación de sistemas de gestión, auditorías en la cadena de suministro y procesos de certificación alineados a estándares internacionales. Integramos además la comunicación organizacional y la gestión de personas como factores clave para impulsar el cambio, fortalecer la cultura corporativa, desarrollar competencias y asegurar la sostenibilidad de los resultados. Complementamos este enfoque con herramientas de comunicación organizacional, gestión del cambio y desarrollo de personas, acompañando a la Dirección en la definición de estrategias, la toma de decisiones y el fortalecimiento de la cultura organizacional para alcanzar resultados sostenibles.</p>
+                    <div class="mt-10 flex flex-wrap gap-3">
+                        <a href="#contacto" class="rounded-md bg-bordo px-6 py-3.5 font-semibold text-white transition hover:bg-bordo-deep">Contacto Directo</a>
+                        <a href="#servicios" class="rounded-md border border-ink/20 px-6 py-3.5 font-semibold text-ink transition hover:border-bordo hover:text-bordo">Nuestros Servicios</a>
+                    </div>
+                </div>
+                <div class="relative md:col-span-6">
+                    <img src="img/logistica-comex.jpg" alt="Logística y Comercio Exterior" class="aspect-[4/5] w-full rounded-xl object-cover">
+                    <img src="img/auditoria-soporte.jpg" alt="Auditoría de Sistemas" class="absolute -bottom-6 right-4 w-2/5 rounded-xl border-[6px] border-white object-cover shadow-lg md:-left-10 md:right-auto md:w-1/2">
                 </div>
             </div>
-            <div class="hero-image-block">
-                <div class="image-wrapper main-img">
-                    <img src="img/logistica-comex.jpg" alt="Logística y Comercio Exterior">
-                </div>
-                <div class="image-wrapper sub-img">
-                    <img src="img/auditoria-soporte.jpg" alt="Auditoría de Sistemas">
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="experta" class="about-section">
-        <div class="about-grid">
-            <div class="about-images">
-                <div class="accent-box"></div>
-                <div class="image-wrapper-about">
-                    <img src="img/perfil-shalon.jpg" alt="Consultora Experta Shalon Morales">
+        <!-- Especialidad -->
+        <section id="experta" class="bg-mist">
+            <div class="mx-auto grid max-w-6xl items-center gap-14 px-5 py-20 md:grid-cols-2 md:px-8 md:py-28">
+                <img src="img/perfil-shalon.jpg" alt="Consultora Experta Shalon Morales" class="aspect-[4/5] w-full rounded-xl object-cover object-top">
+                <div>
+                    <span class="inline-flex items-center gap-2 rounded-full border border-gold/50 bg-gold/10 px-3.5 py-1 text-sm font-semibold text-bordo">PERFIL PROFESIONAL</span>
+                    <h2 class="mt-5 font-display text-3xl font-semibold leading-tight md:text-4xl">Consultora Experta en OEC, Comercio Exterior y Cadena de Suministro</h2>
+                    <p class="relative mt-7 pt-6 font-display text-xl leading-snug text-bordo before:absolute before:left-0 before:top-0 before:h-0.5 before:w-12 before:bg-gold">"Experiencia real en Comercio Exterior aplicada a Seguridad y Gestión"</p>
+                    <p class="mt-5 leading-relaxed text-muted">Soy Licenciada en Ciencias de la Comunicación, con Posgrado en Comunicación Organizacional. Auditora de Sistemas certificada por AENOR y Especialista en Sistemas de Gestión Integrados, Normas ISO y Programa Operador Económico Calificado (OEC).</p>
+                    <p class="mt-4 leading-relaxed text-muted">Cuento con amplia experiencia en Comercio Exterior, Logística y Cadena de Suministro, acompañando a Agentes de Carga, Importadores, Despachantes de Aduana, Operadores Logísticos y empresas de diversos sectores en la gestión de riesgos, el cumplimiento normativo y la mejora continua.</p>
+                    <p class="mt-4 leading-relaxed text-muted">Mi trayectoria en diferentes industrias me ha permitido desarrollar soluciones prácticas, adaptadas a cada organización, integrando una visión estratégica orientada a la eficiencia, la seguridad y el desarrollo sostenible.</p>
                 </div>
             </div>
-            <div class="about-text">
-                <span class="section-title-badge">PERFIL PROFESIONAL</span>
-                <h2 class="section-main-title">Consultora Experta en OEC, Comercio Exterior y Cadena de Suministro</h2>
-                <p class="highlight-text">"Experiencia real en Comercio Exterior aplicada a Seguridad y Gestión"</p>
-                <p>Soy Licenciada en Ciencias de la Comunicación, con Posgrado en Comunicación Organizacional. Auditora de Sistemas certificada por AENOR y Especialista en Sistemas de Gestión Integrados, Normas ISO y Programa Operador Económico Calificado (OEC).</p>
-                <p>Cuento con amplia experiencia en Comercio Exterior, Logística y Cadena de Suministro, acompañando a Agentes de Carga, Importadores, Despachantes de Aduana, Operadores Logísticos y empresas de diversos sectores en la gestión de riesgos, el cumplimiento normativo y la mejora continua.</p>
-                <p>Mi trayectoria en diferentes industrias me ha permitido desarrollar soluciones prácticas, adaptadas a cada organización, integrando una visión estratégica orientada a la eficiencia, la seguridad y el desarrollo sostenible.</p>
-                
+        </section>
+
+        <!-- Servicios -->
+        <section id="servicios">
+            <div class="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
+                <span class="inline-flex items-center gap-2 rounded-full border border-gold/50 bg-gold/10 px-3.5 py-1 text-sm font-semibold text-bordo">IMPULSAMOS LA EXCELENCIA</span>
+                <h2 class="mt-5 font-display text-3xl font-semibold leading-tight md:text-5xl">Nuestros Servicios Especializados</h2>
+
+                <div class="mt-14 grid gap-12 md:grid-cols-3">
+                    <article>
+                        <img src="img/servicio-capacitacion.jpg" alt="Desarrollo de Equipos" class="aspect-[4/3] w-full rounded-lg object-cover">
+                        <h3 class="mt-6 font-display text-2xl font-semibold leading-snug">Gestión del Talento y Cultura Organizacional</h3>
+                        <ul class="mt-5 space-y-3 text-sm leading-relaxed text-muted">
+                            <li class="relative pl-5 before:absolute before:left-0 before:top-2 before:size-1.5 before:bg-gold">Selección de personal y evaluación por competencias.</li>
+                            <li class="relative pl-5 before:absolute before:left-0 before:top-2 before:size-1.5 before:bg-gold">Diagnóstico de clima laboral, cultura y desempeño organizacional.</li>
+                            <li class="relative pl-5 before:absolute before:left-0 before:top-2 before:size-1.5 before:bg-gold">Desarrollo de líderes y equipos de alto desempeño.</li>
+                            <li class="relative pl-5 before:absolute before:left-0 before:top-2 before:size-1.5 before:bg-gold">Gestión del cambio y acompañamiento en procesos de transformación.</li>
+                            <li class="relative pl-5 before:absolute before:left-0 before:top-2 before:size-1.5 before:bg-gold">Intervención en situaciones de crisis, mediación y resolución de conflictos.</li>
+                            <li class="relative pl-5 before:absolute before:left-0 before:top-2 before:size-1.5 before:bg-gold">Diseño e implementación de talleres de sensibilización en salud mental, bienestar laboral, liderazgo y fortalecimiento cultural.</li>
+                        </ul>
+                    </article>
+
+                    <article>
+                        <img src="img/servicio-sistemas.jpg" alt="Implementación de Sistemas" class="aspect-[4/3] w-full rounded-lg object-cover">
+                        <h3 class="mt-6 font-display text-2xl font-semibold leading-snug">Sistemas de Gestión,Seguridad y Certificaciones</h3>
+                        <ul class="mt-5 space-y-3 text-sm leading-relaxed text-muted">
+                            <li class="relative pl-5 before:absolute before:left-0 before:top-2 before:size-1.5 before:bg-gold">Diagnóstico organizacional y análisis de brechas conforme a Normas ISO, Programa OEC y otros estándares aplicables.</li>
+                            <li class="relative pl-5 before:absolute before:left-0 before:top-2 before:size-1.5 before:bg-gold">Implementación y fortalecimiento de sistemas de gestión.</li>
+                            <li class="relative pl-5 before:absolute before:left-0 before:top-2 before:size-1.5 before:bg-gold">Gestión de riesgos y seguridad en la cadena de suministro.</li>
+                            <li class="relative pl-5 before:absolute before:left-0 before:top-2 before:size-1.5 before:bg-gold">Diseño e implementación de procedimientos y controles</li>
+                            <li class="relative pl-5 before:absolute before:left-0 before:top-2 before:size-1.5 before:bg-gold">Auditorías internas, externas y de segunda parte.</li>
+                            <li class="relative pl-5 before:absolute before:left-0 before:top-2 before:size-1.5 before:bg-gold">Acompañamiento integral en procesos de certificación y mejora continua</li>
+                        </ul>
+                    </article>
+
+                    <article>
+                        <img src="img/servicio-talento.jpg" alt="Gestión de Personas" class="aspect-[4/3] w-full rounded-lg object-cover">
+                        <h3 class="mt-6 font-display text-2xl font-semibold leading-snug">Desarrollo Organizacional y Comunicación</h3>
+                        <ul class="mt-5 space-y-3 text-sm leading-relaxed text-muted">
+                            <li class="relative pl-5 before:absolute before:left-0 before:top-2 before:size-1.5 before:bg-gold">Capacitación y formación a medida.</li>
+                            <li class="relative pl-5 before:absolute before:left-0 before:top-2 before:size-1.5 before:bg-gold">Desarrollo de competencias y cultura preventiva.</li>
+                            <li class="relative pl-5 before:absolute before:left-0 before:top-2 before:size-1.5 before:bg-gold">Fortalecimiento de la comunicación y el trabajo en equipo</li>
+                            <li class="relative pl-5 before:absolute before:left-0 before:top-2 before:size-1.5 before:bg-gold">Comunicación organizacional y fortalecimiento de la cultura corporativa.</li>
+                            <li class="relative pl-5 before:absolute before:left-0 before:top-2 before:size-1.5 before:bg-gold">Gestión del cambio y transformación organizacional.</li>
+                            <li class="relative pl-5 before:absolute before:left-0 before:top-2 before:size-1.5 before:bg-gold">Diseño de estrategias de comunicación interna y alineación de equipos con los objetivos de la organización.</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <p class="mt-16 max-w-4xl border-t border-black/10 pt-10 font-display text-2xl leading-snug text-bordo md:text-3xl">“Contamos con un equipo multidisciplinario de profesionales especializados, que aportan una visión integral y estratégica de las operaciones de Comercio Exterior”.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="servicios" class="services-section">
-        <span class="section-title-badge center">IMPULSAMOS LA EXCELENCIA</span>
-        <h2 class="section-main-title">Nuestros Servicios Especializados</h2>
-        
-        <div class="services-grid">
-            <div class="card-canvas">
-               <div class="card-image">
-                    <img src="img/servicio-capacitacion.jpg" alt="Desarrollo de Equipos">
-                </div>
-                <div class="card-body">
-                    <h3>Gestión del Talento y Cultura Organizacional</h3>
-                    <ul>
-                        <li>Selección de personal y evaluación por competencias.</li>
-                        <li>Diagnóstico de clima laboral, cultura y desempeño organizacional.</li>
-                        <li>Desarrollo de líderes y equipos de alto desempeño.</li>
-                        <li>Gestión del cambio y acompañamiento en procesos de transformación.</li>
-                        <li>Intervención en situaciones de crisis, mediación y resolución de conflictos.</li>
-                        <li>Diseño e implementación de talleres de sensibilización en salud mental, bienestar laboral, liderazgo y fortalecimiento cultural.</li>
-                    </ul>
-                </div>
+        <!-- Clientes -->
+        <section id="clientes" class="bg-mist">
+            <div class="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
+                <span class="inline-flex items-center gap-2 rounded-full border border-gold/50 bg-gold/10 px-3.5 py-1 text-sm font-semibold text-bordo">RESPALDO Y CONFIANZA</span>
+                <h2 class="mt-5 font-display text-3xl font-semibold leading-tight md:text-5xl">Principales Clientes de Comercio Exterior</h2>
+                <p class="mt-4 text-lg text-muted">“La confianza de nuestros clientes respalda nuestros resultados”</p>
+
+                <div id="clients-grid" class="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4"></div>
             </div>
+        </section>
 
-            <div class="card-canvas highlight-card">
-                <div class="card-image">
-                    <img src="img/servicio-sistemas.jpg" alt="Implementación de Sistemas">
+        <!-- Contacto -->
+        <section id="contacto" class="bg-bordo text-white">
+            <div class="mx-auto grid max-w-6xl gap-14 px-5 py-20 md:grid-cols-12 md:px-8 md:py-28">
+                <div class="md:col-span-7">
+                    <h2 class="font-display text-3xl font-semibold leading-tight md:text-5xl">Coordinemos una reunion</h2>
+                    <p class="mt-6 font-display text-xl font-semibold leading-snug text-gold-soft"><strong class="font-semibold">Transformemos desafíos en oportunidades de mejora</strong></p>
+                    <p class="mt-4 max-w-prose leading-relaxed text-white/85">Si desea coordinar una reunión de diagnóstico, solicitar una propuesta o conocer más sobre nuestros servicios, ponemos a tu disposición los siguientes canales de comunicación.</p>
+
+                    <div class="mt-10 grid gap-x-10 gap-y-4 text-[15px] sm:grid-cols-2">
+                        <p class="border-t border-white/15 pt-4"><strong class="font-semibold text-gold-soft">Razón Social:</strong> Shalon Elizabeth Morales Caraballo</p>
+                        <p class="border-t border-white/15 pt-4"><strong class="font-semibold text-gold-soft">RUT:</strong> 219364190012</p>
+                        <p class="border-t border-white/15 pt-4"><strong class="font-semibold text-gold-soft">Modalidad de atención:</strong> Presencial y remota</p>
+                        <p class="border-t border-white/15 pt-4"><strong class="font-semibold text-gold-soft">Ubicación:</strong> Montevideo, Uruguay</p>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <h3>Sistemas de Gestión,Seguridad y Certificaciones</h3>
-                    <ul>
-                        <li>Diagnóstico organizacional y análisis de brechas conforme a Normas ISO, Programa OEC y otros estándares aplicables.</li>
-                        <li>Implementación y fortalecimiento de sistemas de gestión.</li>
-                        <li>Gestión de riesgos y seguridad en la cadena de suministro.</li>
-                        <li>Diseño e implementación de procedimientos y controles</li>
-                        <li>Auditorías internas, externas y de segunda parte.</li>
-                        <li>Acompañamiento integral en procesos de certificación y mejora continua</li>
-                    </ul>
-                </div>
-                
-            </div>
 
-            <div class="card-canvas">
-                <div class="card-image">
-                    <img src="img/servicio-talento.jpg" alt="Gestión de Personas">
-                </div>
-                <div class="card-body">
-                    <h3>Desarrollo Organizacional y Comunicación</h3>
-                    <ul>
-                        <li>Capacitación y formación a medida.</li>
-                        <li>Desarrollo de competencias y cultura preventiva.</li>
-                        <li>Fortalecimiento de la comunicación y el trabajo en equipo</li>
-                        <li>Comunicación organizacional y fortalecimiento de la cultura corporativa.</li>
-                        <li>Gestión del cambio y transformación organizacional.</li>
-                        <li>Diseño de estrategias de comunicación interna y alineación de equipos con los objetivos de la organización.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+                <div class="md:col-span-5 md:pl-6">
+                    <span class="inline-flex items-center gap-2 rounded-full border border-white/25 px-3.5 py-1 text-sm font-semibold text-white">Canales de Comunicación</span>
 
-        <p class="services-footer-quote">“Contamos con un equipo multidisciplinario de profesionales especializados, que aportan una visión integral y estratégica de las operaciones de Comercio Exterior”.</p>
-    </section>
+                    <div class="mt-8 space-y-4">
+                        <div class="flex items-center gap-4 rounded-lg border border-white/15 p-5">
+                            <span class="grid size-11 shrink-0 place-items-center rounded-full bg-white/10 text-gold-soft" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" class="size-5" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4V21H3V9.75Zm6.5 0h3.83v1.54h.05c.53-1 1.84-2.06 3.79-2.06 4.05 0 4.8 2.67 4.8 6.13V21h-4v-4.9c0-1.17-.02-2.68-1.63-2.68-1.64 0-1.89 1.28-1.89 2.6V21h-4V9.75Z"/></svg>
+                            </span>
+                            <div class="min-w-0">
+                                <span class="channel-label block text-sm text-white/70">LinkedIn</span>
+                                <a href="https://www.linkedin.com/in/shalonmorales/" target="_blank" rel="noopener noreferrer" class="font-semibold text-white underline-offset-4 hover:underline">Shalon Morales</a>
+                            </div>
+                        </div>
 
-    <section id="clientes" class="clients-section">
-        <span class="section-title-badge center">RESPALDO Y CONFIANZA</span>
-        <h2 class="section-main-title">Principales Clientes de Comercio Exterior</h2>
-        <p class="clients-subtitle">“La confianza de nuestros clientes respalda nuestros resultados”</p>
-        
-        <div id="clients-grid" class="clients-grid"></div>
-    </section>
+                        <div class="flex items-center gap-4 rounded-lg border border-white/15 p-5">
+                            <span class="grid size-11 shrink-0 place-items-center rounded-full bg-white/10 text-gold-soft" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" class="size-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 12l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2Z"/></svg>
+                            </span>
+                            <div class="min-w-0">
+                                <span class="channel-label block text-sm text-white/70">Teléfono / WhatsApp</span>
+                                <a href="https://wa.me/59899987300" target="_blank" rel="noopener noreferrer" class="font-semibold text-white underline-offset-4 hover:underline">(+598) 99 987 300</a>
+                            </div>
+                        </div>
 
-    <section id="contacto" class="contact-section">
-    <div class="contact-wrapper">
-        <div class="contact-info-panel">
-            <h2>Coordinemos una reunion</h2>
-            <p><strong>Transformemos desafíos en oportunidades de mejora</strong></p>
-            <p>Si desea coordinar una reunión de diagnóstico, solicitar una propuesta o conocer más sobre nuestros servicios, ponemos a tu disposición los siguientes canales de comunicación.</p>
-            
-            <div class="contact-details">
-                <p><strong>Razón Social:</strong> Shalon Elizabeth Morales Caraballo</p>
-                <p><strong>RUT:</strong> 219364190012</p>
-                <p><strong>Modalidad de atención:</strong> Presencial y remota</p>
-                <p><strong>Ubicación:</strong> Montevideo, Uruguay</p>
-            </div>
-        </div>
-
-        <div class="contact-channels-panel">
-            <span class="badge-channels">Canales de Comunicación</span>
-            <!--<h3>Canales de Comunicación</h3>-->
-            
-            <div class="channel-box">
-                <div class="channel-icon">💼</div>
-                <div class="channel-data">
-                    <span class="channel-label">LinkedIn</span>
-                    <a href="https://www.linkedin.com/in/shalonmorales/" target="_blank" rel="noopener noreferrer" class="channel-link">Shalon Morales</a>
-                </div>
-            </div>
-
-            
-
-            <div class="channel-box">
-                <div class="channel-icon">📱</div>
-                <div class="channel-data">
-                    <span class="channel-label">Teléfono / WhatsApp</span>
-                    <a href="https://wa.me/59899987300" target="_blank" rel="noopener noreferrer" class="channel-link">(+598) 99 987 300</a>
-                </div>
-            </div>
-
-            <div class="channel-box">
-                <div class="channel-icon">✉️</div>
-                <div class="channel-data">
-                    <span class="channel-label">Correo electrónico</span>
-                    <a href="mailto:shalonmorales@gmail.com" class="channel-link">shalonmorales@gmail.com</a>
+                        <div class="flex items-center gap-4 rounded-lg border border-white/15 p-5">
+                            <span class="grid size-11 shrink-0 place-items-center rounded-full bg-white/10 text-gold-soft" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" class="size-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6 8.5-6"/></svg>
+                            </span>
+                            <div class="min-w-0">
+                                <span class="channel-label block text-sm text-white/70">Correo electrónico</span>
+                                <a href="mailto:shalonmorales@gmail.com" class="break-all font-semibold text-white underline-offset-4 hover:underline">shalonmorales@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-        </div>
-    </div>
-</section>
+        </section>
+    </main>
 
-    <footer>
-        <div class="footer-content">
-            <p class="footer-logo">SM Consultores</p>
-            <p>&copy; 2026 SM Consultores. Estrategia, Gestión y Cumplimiento. Todos los derechos reservados.</p>
+    <footer class="border-t border-black/10">
+        <div class="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-10 text-sm text-muted md:flex-row md:items-center md:justify-between md:px-8">
+            <p class="font-display font-semibold text-ink">SM Consultores</p>
+            <p>© 2026 SM Consultores. Estrategia, Gestión y Cumplimiento. Todos los derechos reservados.</p>
         </div>
     </footer>
 
