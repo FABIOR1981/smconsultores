@@ -1,0 +1,3 @@
+Respaldo de la web en producción (rama main, commit b0cb588) tomado el 2026-10-30,
+antes de publicar la Opción 2 de la ronda 2.
+Para restaurar: copiar estos archivos a la raíz de la rama main.
