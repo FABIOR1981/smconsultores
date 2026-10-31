@@ -3,196 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SM Consultores - Sistemas de Gestión y Mejora Organizacional</title>
+    <title>SM Consultores · Sistemas de Gestión y Mejora Organizacional</title>
+    <meta name="description" content="SM Consultores asesora en sistemas de gestión, OEC, comercio exterior, cadena de suministro, gestión del talento y comunicación organizacional. Montevideo, Uruguay.">
+    <meta name="theme-color" content="#c08c29">
+
+    <meta property="og:title" content="SM Consultores · Sistemas de Gestión y Mejora Organizacional">
+    <meta property="og:description" content="Estrategia, sistemas de gestión y desarrollo organizacional con experiencia real en comercio exterior.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="img/logo-shalon-morales-consultores.png">
+
+    <link rel="icon" type="image/png" href="img/logo-shalon-morales-consultores.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="blob-decorator blob-1"></div>
-    <div class="blob-decorator blob-2"></div>
+    <a class="skip-link" href="#contenido">Ir al contenido</a>
 
-    <header class="navbar">
-        <div class="logo">SM <span>Consultores</span></div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">&#9776;</button>
-        <nav class="nav-links" id="navLinks">
-            <a href="#inicio" class="nav-item">Inicio</a>
-            <a href="#experta" class="nav-item">Especialidad</a>
-            <a href="#servicios" class="nav-item">Servicios</a>
-            <a href="#clientes" class="nav-item">Clientes</a>
-            <a href="#contacto" class="nav-item">Contacto</a>
-        </nav>
+    <header class="site-header" id="cabecera">
+        <div class="container header-inner">
+            <a href="#inicio" class="brand" aria-label="SM Consultores, inicio">
+                <img src="img/logo-sin-fondo.png" alt="Shalon Morales Consultores" width="535" height="358">
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menú">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="nav" id="navLinks" aria-label="Principal">
+                <a href="#inicio" class="nav-item">Inicio</a>
+                <a href="#perfil" class="nav-item">Perfil</a>
+                <a href="#servicios" class="nav-item">Servicios</a>
+                <a href="#clientes" class="nav-item">Clientes</a>
+                <a href="#contacto" class="nav-item nav-cta">Contacto</a>
+            </nav>
+        </div>
     </header>
 
-    <section id="inicio" class="hero-section">
-        <div class="hero-container">
-            <div class="hero-text-block">
-                <span class="badge">Sistemas de Gestión y Mejora Organizacional</span>
-                <h2 class="section-main-title">Estrategia, Sistema de Gestión y Desarrollo Organizacional</h2>
-                <p>Acompañamos a las Organizaciones en el fortalecimiento de su gestión, el cumplimiento normativo y la mejora continua, mediante la implementación de sistemas de gestión, auditorías en la cadena de suministro y procesos de certificación alineados a estándares internacionales. Integramos además la comunicación organizacional y la gestión de personas como factores clave para impulsar el cambio, fortalecer la cultura corporativa, desarrollar competencias y asegurar la sostenibilidad de los resultados. Complementamos este enfoque con herramientas de comunicación organizacional, gestión del cambio y desarrollo de personas, acompañando a la Dirección en la definición de estrategias, la toma de decisiones y el fortalecimiento de la cultura organizacional para alcanzar resultados sostenibles.</p>
-                <!--<p>Complemento este enfoque con herramientas de comunicación organizacional, gestión del cambio y desarrollo de personas, acompañando a la Dirección en la definición de estrategias, la toma de decisiones y el fortalecimiento de la cultura organizacional para alcanzar resultados sostenibles.</p>-->
-                <div class="hero-actions">
-                    <a href="#contacto" class="btn-primary">Contacto Directo</a>
-                    <a href="#servicios" class="btn-secondary">Nuestros Servicios</a>
+    <main id="contenido">
+
+        <section id="inicio" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <span class="eyebrow">Sistemas de Gestión y Mejora Organizacional</span>
+                    <h1>Estrategia, sistema de gestión y desarrollo organizacional</h1>
+                    <p class="lead">Acompañamos a las organizaciones en el fortalecimiento de su gestión, el cumplimiento normativo y la mejora continua: implementación de sistemas de gestión, auditorías en la cadena de suministro y procesos de certificación alineados a estándares internacionales.</p>
+                    <p>Integramos la comunicación organizacional y la gestión de personas como factores clave para impulsar el cambio, fortalecer la cultura corporativa y asegurar la sostenibilidad de los resultados.</p>
+                    <div class="actions">
+                        <a href="#contacto" class="btn btn-primary">Coordinar una reunión</a>
+                        <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
+                    </div>
+                </div>
+
+                <figure class="hero-media">
+                    <img class="hero-main" src="img/logistica-comex.jpg" alt="Logística y comercio exterior" loading="eager">
+                    <img class="hero-sub" src="img/auditoria-soporte.jpg" alt="Auditoría de sistemas" loading="eager">
+                </figure>
+            </div>
+        </section>
+
+        <section id="perfil" class="profile">
+            <div class="container profile-grid">
+                <figure class="profile-photo">
+                    <img src="img/perfil-shalon.jpg" alt="Shalon Morales, consultora" loading="lazy">
+                </figure>
+
+                <div class="profile-text">
+                    <span class="eyebrow">Perfil profesional</span>
+                    <h2>Consultora experta en OEC, comercio exterior y cadena de suministro</h2>
+                    <blockquote class="pull-quote">Experiencia real en comercio exterior aplicada a seguridad y gestión.</blockquote>
+                    <p>Licenciada en Ciencias de la Comunicación, con posgrado en Comunicación Organizacional. Auditora de Sistemas certificada por AENOR y especialista en Sistemas de Gestión Integrados, normas ISO y el Programa Operador Económico Calificado (OEC).</p>
+                    <p>Cuenta con amplia experiencia en comercio exterior, logística y cadena de suministro, acompañando a agentes de carga, importadores, despachantes de aduana, operadores logísticos y empresas de diversos sectores en la gestión de riesgos, el cumplimiento normativo y la mejora continua.</p>
+                    <p>Su trayectoria en distintas industrias permite desarrollar soluciones prácticas, adaptadas a cada organización, con una visión estratégica orientada a la eficiencia, la seguridad y el desarrollo sostenible.</p>
                 </div>
             </div>
-            <div class="hero-image-block">
-                <div class="image-wrapper main-img">
-                    <img src="img/logistica-comex.jpg" alt="Logística y Comercio Exterior">
+        </section>
+
+        <section id="servicios" class="services">
+            <div class="container">
+                <header class="section-head">
+                    <span class="eyebrow">Impulsamos la excelencia</span>
+                    <h2>Nuestros servicios especializados</h2>
+                </header>
+
+                <div class="services-grid">
+                    <article class="service-card">
+                        <div class="service-media">
+                            <img src="img/servicio-capacitacion.jpg" alt="Desarrollo de equipos" loading="lazy">
+                        </div>
+                        <div class="service-body">
+                            <h3>Gestión del talento y cultura organizacional</h3>
+                            <ul>
+                                <li>Selección de personal y evaluación por competencias.</li>
+                                <li>Diagnóstico de clima laboral, cultura y desempeño organizacional.</li>
+                                <li>Desarrollo de líderes y equipos de alto desempeño.</li>
+                                <li>Gestión del cambio y acompañamiento en procesos de transformación.</li>
+                                <li>Intervención en crisis, mediación y resolución de conflictos.</li>
+                                <li>Talleres de sensibilización en salud mental, bienestar laboral, liderazgo y cultura.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="service-card is-featured">
+                        <div class="service-media">
+                            <img src="img/servicio-sistemas.jpg" alt="Implementación de sistemas" loading="lazy">
+                        </div>
+                        <div class="service-body">
+                            <h3>Sistemas de gestión, seguridad y certificaciones</h3>
+                            <ul>
+                                <li>Diagnóstico y análisis de brechas según normas ISO, Programa OEC y otros estándares aplicables.</li>
+                                <li>Implementación y fortalecimiento de sistemas de gestión.</li>
+                                <li>Gestión de riesgos y seguridad en la cadena de suministro.</li>
+                                <li>Diseño e implementación de procedimientos y controles.</li>
+                                <li>Auditorías internas, externas y de segunda parte.</li>
+                                <li>Acompañamiento integral en certificación y mejora continua.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-media">
+                            <img src="img/servicio-talento.jpg" alt="Gestión de personas" loading="lazy">
+                        </div>
+                        <div class="service-body">
+                            <h3>Desarrollo organizacional y comunicación</h3>
+                            <ul>
+                                <li>Capacitación y formación a medida.</li>
+                                <li>Desarrollo de competencias y cultura preventiva.</li>
+                                <li>Fortalecimiento de la comunicación y el trabajo en equipo.</li>
+                                <li>Comunicación organizacional y fortalecimiento de la cultura corporativa.</li>
+                                <li>Gestión del cambio y transformación organizacional.</li>
+                                <li>Estrategias de comunicación interna y alineación de equipos con los objetivos.</li>
+                            </ul>
+                        </div>
+                    </article>
                 </div>
-                <div class="image-wrapper sub-img">
-                    <img src="img/auditoria-soporte.jpg" alt="Auditoría de Sistemas">
-                </div>
+
+                <p class="services-note">Un equipo multidisciplinario de profesionales especializados, con una visión integral y estratégica de las operaciones de comercio exterior.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="experta" class="about-section">
-        <div class="about-grid">
-            <div class="about-images">
-                <div class="accent-box"></div>
-                <div class="image-wrapper-about">
-                    <img src="img/perfil-shalon.jpg" alt="Consultora Experta Shalon Morales">
-                </div>
+        <section id="clientes" class="clients">
+            <div class="container">
+                <header class="section-head">
+                    <span class="eyebrow">Respaldo y confianza</span>
+                    <h2>Principales clientes de comercio exterior</h2>
+                    <p class="section-sub">La confianza de nuestros clientes respalda nuestros resultados.</p>
+                </header>
+
+                <div id="clients-grid" class="clients-grid"></div>
             </div>
-            <div class="about-text">
-                <span class="section-title-badge">PERFIL PROFESIONAL</span>
-                <h2 class="section-main-title">Consultora Experta en OEC, Comercio Exterior y Cadena de Suministro</h2>
-                <p class="highlight-text">"Experiencia real en Comercio Exterior aplicada a Seguridad y Gestión"</p>
-                <p>Soy Licenciada en Ciencias de la Comunicación, con Posgrado en Comunicación Organizacional. Auditora de Sistemas certificada por AENOR y Especialista en Sistemas de Gestión Integrados, Normas ISO y Programa Operador Económico Calificado (OEC).</p>
-                <p>Cuento con amplia experiencia en Comercio Exterior, Logística y Cadena de Suministro, acompañando a Agentes de Carga, Importadores, Despachantes de Aduana, Operadores Logísticos y empresas de diversos sectores en la gestión de riesgos, el cumplimiento normativo y la mejora continua.</p>
-                <p>Mi trayectoria en diferentes industrias me ha permitido desarrollar soluciones prácticas, adaptadas a cada organización, integrando una visión estratégica orientada a la eficiencia, la seguridad y el desarrollo sostenible.</p>
-                
+        </section>
+
+        <section id="contacto" class="contact">
+            <div class="container contact-grid">
+                <div class="contact-info">
+                    <span class="eyebrow eyebrow-light">Contacto</span>
+                    <h2>Coordinemos una reunión</h2>
+                    <p class="contact-lead">Transformemos desafíos en oportunidades de mejora. Si desea coordinar una reunión de diagnóstico, solicitar una propuesta o conocer más sobre nuestros servicios, escríbanos por el canal que prefiera.</p>
+
+                    <dl class="contact-data">
+                        <div><dt>Razón social</dt><dd>Shalon Elizabeth Morales Caraballo</dd></div>
+                        <div><dt>RUT</dt><dd>219364190012</dd></div>
+                        <div><dt>Modalidad</dt><dd>Presencial y remota</dd></div>
+                        <div><dt>Ubicación</dt><dd>Montevideo, Uruguay</dd></div>
+                    </dl>
+                </div>
+
+                <ul class="channels">
+                    <li>
+                        <a href="https://wa.me/59899987300" target="_blank" rel="noopener noreferrer" class="channel channel-whatsapp">
+                            <span class="channel-icon" aria-hidden="true">WA</span>
+                            <span class="channel-text">
+                                <span class="channel-label">Teléfono / WhatsApp</span>
+                                <span class="channel-value">(+598) 99 987 300</span>
+                            </span>
+                            <span class="channel-arrow" aria-hidden="true">→</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:shalonmorales@gmail.com" class="channel">
+                            <span class="channel-icon" aria-hidden="true">@</span>
+                            <span class="channel-text">
+                                <span class="channel-label">Correo electrónico</span>
+                                <span class="channel-value">shalonmorales@gmail.com</span>
+                            </span>
+                            <span class="channel-arrow" aria-hidden="true">→</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/shalonmorales/" target="_blank" rel="noopener noreferrer" class="channel">
+                            <span class="channel-icon" aria-hidden="true">in</span>
+                            <span class="channel-text">
+                                <span class="channel-label">LinkedIn</span>
+                                <span class="channel-value">Shalon Morales</span>
+                            </span>
+                            <span class="channel-arrow" aria-hidden="true">→</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="servicios" class="services-section">
-        <span class="section-title-badge center">IMPULSAMOS LA EXCELENCIA</span>
-        <h2 class="section-main-title">Nuestros Servicios Especializados</h2>
-        
-        <div class="services-grid">
-            <div class="card-canvas">
-               <div class="card-image">
-                    <img src="img/servicio-capacitacion.jpg" alt="Desarrollo de Equipos">
-                </div>
-                <div class="card-body">
-                    <h3>Gestión del Talento y Cultura Organizacional</h3>
-                    <ul>
-                        <li>Selección de personal y evaluación por competencias.</li>
-                        <li>Diagnóstico de clima laboral, cultura y desempeño organizacional.</li>
-                        <li>Desarrollo de líderes y equipos de alto desempeño.</li>
-                        <li>Gestión del cambio y acompañamiento en procesos de transformación.</li>
-                        <li>Intervención en situaciones de crisis, mediación y resolución de conflictos.</li>
-                        <li>Diseño e implementación de talleres de sensibilización en salud mental, bienestar laboral, liderazgo y fortalecimiento cultural.</li>
-                    </ul>
-                </div>
-            </div>
+    </main>
 
-            <div class="card-canvas highlight-card">
-                <div class="card-image">
-                    <img src="img/servicio-sistemas.jpg" alt="Implementación de Sistemas">
-                </div>
-                <div class="card-body">
-                    <h3>Sistemas de Gestión,Seguridad y Certificaciones</h3>
-                    <ul>
-                        <li>Diagnóstico organizacional y análisis de brechas conforme a Normas ISO, Programa OEC y otros estándares aplicables.</li>
-                        <li>Implementación y fortalecimiento de sistemas de gestión.</li>
-                        <li>Gestión de riesgos y seguridad en la cadena de suministro.</li>
-                        <li>Diseño e implementación de procedimientos y controles</li>
-                        <li>Auditorías internas, externas y de segunda parte.</li>
-                        <li>Acompañamiento integral en procesos de certificación y mejora continua</li>
-                    </ul>
-                </div>
-                
-            </div>
-
-            <div class="card-canvas">
-                <div class="card-image">
-                    <img src="img/servicio-talento.jpg" alt="Gestión de Personas">
-                </div>
-                <div class="card-body">
-                    <h3>Desarrollo Organizacional y Comunicación</h3>
-                    <ul>
-                        <li>Capacitación y formación a medida.</li>
-                        <li>Desarrollo de competencias y cultura preventiva.</li>
-                        <li>Fortalecimiento de la comunicación y el trabajo en equipo</li>
-                        <li>Comunicación organizacional y fortalecimiento de la cultura corporativa.</li>
-                        <li>Gestión del cambio y transformación organizacional.</li>
-                        <li>Diseño de estrategias de comunicación interna y alineación de equipos con los objetivos de la organización.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <p class="services-footer-quote">“Contamos con un equipo multidisciplinario de profesionales especializados, que aportan una visión integral y estratégica de las operaciones de Comercio Exterior”.</p>
-    </section>
-
-    <section id="clientes" class="clients-section">
-        <span class="section-title-badge center">RESPALDO Y CONFIANZA</span>
-        <h2 class="section-main-title">Principales Clientes de Comercio Exterior</h2>
-        <p class="clients-subtitle">“La confianza de nuestros clientes respalda nuestros resultados”</p>
-        
-        <div id="clients-grid" class="clients-grid"></div>
-    </section>
-
-    <section id="contacto" class="contact-section">
-    <div class="contact-wrapper">
-        <div class="contact-info-panel">
-            <h2>Coordinemos una reunion</h2>
-            <p><strong>Transformemos desafíos en oportunidades de mejora</strong></p>
-            <p>Si desea coordinar una reunión de diagnóstico, solicitar una propuesta o conocer más sobre nuestros servicios, ponemos a tu disposición los siguientes canales de comunicación.</p>
-            
-            <div class="contact-details">
-                <p><strong>Razón Social:</strong> Shalon Elizabeth Morales Caraballo</p>
-                <p><strong>RUT:</strong> 219364190012</p>
-                <p><strong>Modalidad de atención:</strong> Presencial y remota</p>
-                <p><strong>Ubicación:</strong> Montevideo, Uruguay</p>
-            </div>
-        </div>
-
-        <div class="contact-channels-panel">
-            <span class="badge-channels">Canales de Comunicación</span>
-            <!--<h3>Canales de Comunicación</h3>-->
-            
-            <div class="channel-box">
-                <div class="channel-icon">💼</div>
-                <div class="channel-data">
-                    <span class="channel-label">LinkedIn</span>
-                    <a href="https://www.linkedin.com/in/shalonmorales/" target="_blank" rel="noopener noreferrer" class="channel-link">Shalon Morales</a>
-                </div>
-            </div>
-
-            
-
-            <div class="channel-box">
-                <div class="channel-icon">📱</div>
-                <div class="channel-data">
-                    <span class="channel-label">Teléfono / WhatsApp</span>
-                    <a href="https://wa.me/59899987300" target="_blank" rel="noopener noreferrer" class="channel-link">(+598) 99 987 300</a>
-                </div>
-            </div>
-
-            <div class="channel-box">
-                <div class="channel-icon">✉️</div>
-                <div class="channel-data">
-                    <span class="channel-label">Correo electrónico</span>
-                    <a href="mailto:shalonmorales@gmail.com" class="channel-link">shalonmorales@gmail.com</a>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-</section>
-
-    <footer>
-        <div class="footer-content">
-            <p class="footer-logo">SM Consultores</p>
-            <p>&copy; 2026 SM Consultores. Estrategia, Gestión y Cumplimiento. Todos los derechos reservados.</p>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <img src="img/logo-shalon-morales-consultores.png" alt="" width="535" height="358" class="footer-logo" loading="lazy">
+            <p>&copy; 2026 SM Consultores. Estrategia, gestión y cumplimiento.<br>Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <script src="js/app.js"></script>
-    <script src="js/logos.js"></script>
-    <script src="js/main.js"></script>
+    <a class="whatsapp-float" href="https://wa.me/59899987300" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp">
+        WhatsApp
+    </a>
+
+    <script src="js/app.js" defer></script>
+    <script src="js/logos.js" defer></script>
+    <script src="js/main.js" defer></script>
 </body>
 </html>
